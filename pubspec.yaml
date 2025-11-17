@@ -1,0 +1,74 @@
+name: onetimesecret
+description: A secure, privacy-first mobile application for Onetimesecret
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.10.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # State Management
+  flutter_riverpod: ^2.6.1
+  riverpod_annotation: ^2.5.0
+
+  # Networking
+  http: ^1.2.2
+  dio: ^5.7.0
+
+  # Secure Storage
+  flutter_secure_storage: ^9.2.2
+
+  # JSON Serialization
+  json_annotation: ^4.9.0
+  freezed_annotation: ^2.4.4
+
+  # Dependency Injection
+  get_it: ^8.0.2
+  injectable: ^2.5.0
+
+  # Utilities
+  equatable: ^2.0.7
+  logger: ^2.4.0
+  dartz: ^0.10.1
+
+  # Security
+  ssl_pinning_plugin: ^2.0.0
+
+  # UI
+  cupertino_icons: ^1.0.8
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Code Generation
+  build_runner: ^2.4.13
+  json_serializable: ^6.8.0
+  freezed: ^2.5.7
+  riverpod_generator: ^2.6.2
+  injectable_generator: ^2.6.2
+
+  # Testing
+  mockito: ^5.4.4
+  mocktail: ^1.0.4
+
+  # Linting
+  flutter_lints: ^5.0.0
+  very_good_analysis: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Add assets here as needed
+  # assets:
+  #   - images/
+  #   - config/
+
+  # Add fonts here as needed
+  # fonts:
+  #   - family: CustomFont
+  #     fonts:
+  #       - asset: fonts/CustomFont-Regular.ttf
