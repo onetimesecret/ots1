@@ -3,12 +3,14 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
 import '../constants/api_constants.dart';
 import '../constants/app_constants.dart';
 import '../errors/exceptions.dart';
+import '../security/certificate_pinning_service.dart';
 import '../storage/secure_storage_service.dart';
 
 /// DIO client with interceptors, error handling, and certificate pinning
@@ -108,18 +110,13 @@ class DioClient {
     (_dio.httpClientAdapter as IOHttpClientAdapter).createHttpClient = () {
       final client = HttpClient();
       client.badCertificateCallback = (cert, host, port) {
-        // Verify certificate fingerprint
-        // In production, implement proper certificate validation
-        // For now, we'll accept all certificates but log them
-        _logger.w('Certificate from $host:$port');
-        _logger.w('Issuer: ${cert.issuer}');
-        _logger.w('Subject: ${cert.subject}');
+        // Print certificate details in debug mode for configuration
+        if (kDebugMode && AppConstants.allowedSHA256Fingerprints.isEmpty) {
+          CertificatePinningService.printCertificateFingerprint(cert);
+        }
 
-        // TODO: Implement actual certificate pinning
-        // Compare cert fingerprint with allowed fingerprints
-        // return AppConstants.allowedSHA256Fingerprints.contains(fingerprint);
-
-        return true; // Accept all for development
+        // Validate certificate using pinning service
+        return CertificatePinningService.validateCertificate(cert, host, port);
       };
       return client;
     };

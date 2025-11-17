@@ -1,3 +1,5 @@
+import '../config/environment.dart';
+
 /// Application-wide constants
 class AppConstants {
   AppConstants._();
@@ -8,10 +10,13 @@ class AppConstants {
   static const String appDescription =
       'Secure, privacy-first secret sharing application';
 
-  // API Configuration
-  static const String baseUrl = 'https://onetimesecret.com';
+  // Environment Configuration
+  static EnvironmentConfig get env => EnvironmentConfig.current;
+
+  // API Configuration (dynamic based on environment)
+  static String get baseUrl => env.baseUrl;
   static const String apiVersion = 'v2';
-  static const String apiBaseUrl = '$baseUrl/api/$apiVersion';
+  static String get apiBaseUrl => '$baseUrl/api/$apiVersion';
 
   // API Endpoints
   static const String shareEndpoint = '/share';
@@ -21,9 +26,9 @@ class AppConstants {
   static const String localesEndpoint = '/supported-locales';
   static const String versionEndpoint = '/version';
 
-  // Timeouts
-  static const int connectionTimeout = 30000; // 30 seconds
-  static const int receiveTimeout = 30000; // 30 seconds
+  // Timeouts (dynamic based on environment)
+  static int get connectionTimeout => env.connectionTimeout;
+  static int get receiveTimeout => env.receiveTimeout;
   static const int sendTimeout = 30000; // 30 seconds
 
   // Retry Configuration
@@ -61,8 +66,10 @@ class AppConstants {
   static const double cardBorderRadius = 12.0;
   static const double buttonBorderRadius = 8.0;
 
-  // Security
+  // Security (dynamic based on environment)
   static const int minPasswordLength = 8;
-  static const bool enableCertificatePinning = true;
+  static bool get enableCertificatePinning => env.enableCertificatePinning;
   static const bool enableObfuscation = true;
+  static bool get enableRASP => env.enableRASP;
+  static bool get enableDebugLogging => env.enableDebugLogging;
 }
