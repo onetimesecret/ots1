@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Production configuration -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <!-- Trust system certificate authorities -->
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+
+    <!-- Domain-specific configuration for certificate pinning -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">onetimesecret.com</domain>
+        <trust-anchors>
+            <certificates src="system"/>
+            <!-- Add custom certificates here for certificate pinning -->
+            <!-- <certificates src="@raw/onetimesecret_cert"/> -->
+        </trust-anchors>
+
+        <!-- Certificate pinning (add your certificate SHA-256 pins) -->
+        <!-- <pin-set>
+            <pin digest="SHA-256">AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</pin>
+        </pin-set> -->
+    </domain-config>
+
+    <!-- Debug configuration (only for development) -->
+    <!-- Remove or comment out in production -->
+    <!--
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="user"/>
+            <certificates src="system"/>
+        </trust-anchors>
+    </debug-overrides>
+    -->
+</network-security-config>
