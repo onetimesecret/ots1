@@ -1,0 +1,779 @@
+{
+  "metadata": {
+    "generated_at": "2025-11-23T00:00:00Z",
+    "version": "1.0.0",
+    "project": "OneTimeSecret Multi-Jurisdiction Compliance Research",
+    "description": "Comprehensive compliance data for secret-sharing service across multiple jurisdictions",
+    "jurisdictions_covered": [
+      "EU", "UK", "Canada", "Brazil", "Australia", "Japan", "Singapore",
+      "New Zealand", "Switzerland", "United States"
+    ],
+    "phases_completed": [
+      "Phase 1: Legal Requirement Extraction",
+      "Phase 2: Technical Implementation Matrix",
+      "Phase 3: Conflict Detection",
+      "Phase 4: Architecture Decision Records",
+      "Phase 5: Monitoring & Compliance Queries",
+      "Phase 6: Customer Disclosure Requirements"
+    ]
+  },
+
+  "jurisdictions": {
+    "EU": {
+      "name": "European Union",
+      "primary_regulation": "GDPR (Regulation 2016/679)",
+      "enforcement_date": "2018-05-25",
+      "supervisory_authority": "European Data Protection Board (EDPB) + National DPAs",
+      "adequacy_status": "N/A (Internal)",
+
+      "legal_requirements": [
+        {
+          "id": "EU-GDPR-44",
+          "regulation": "GDPR",
+          "article": "Article 44",
+          "requirement": "Any transfer of personal data to a third country requires adequacy decision or appropriate safeguards",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2018-05-25",
+          "latest_enforcement": {
+            "case": "Meta Platforms Ireland Ltd",
+            "fine_eur": 1200000000,
+            "fine_usd": 1320000000,
+            "date": "2023-05",
+            "violation": "Unlawful EU-US data transfers without adequate safeguards"
+          }
+        },
+        {
+          "id": "EU-GDPR-5-1-E",
+          "regulation": "GDPR",
+          "article": "Article 5(1)(e)",
+          "requirement": "Personal data kept for no longer than necessary (storage limitation)",
+          "applies_to": "data-at-rest",
+          "trigger": "all-data",
+          "enforcement_date": "2018-05-25",
+          "latest_enforcement": {
+            "note": "Multiple enforcement actions for excessive retention"
+          }
+        },
+        {
+          "id": "EU-GDPR-17",
+          "regulation": "GDPR",
+          "article": "Article 17",
+          "requirement": "Right to erasure - must delete within 30 days of request",
+          "applies_to": "data-at-rest",
+          "trigger": "all-data",
+          "enforcement_date": "2018-05-25",
+          "response_timeframe": "30 days"
+        },
+        {
+          "id": "EU-GDPR-32",
+          "regulation": "GDPR",
+          "article": "Article 32",
+          "requirement": "Implement appropriate technical measures including encryption",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2018-05-25",
+          "latest_enforcement": {
+            "case": "Meta - Data Breach",
+            "fine_eur": 251000000,
+            "date": "2024",
+            "violation": "Inadequate security leading to 2018 breach"
+          }
+        },
+        {
+          "id": "EU-GDPR-33",
+          "regulation": "GDPR",
+          "article": "Article 33",
+          "requirement": "Breach notification to supervisory authority within 72 hours",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2018-05-25",
+          "response_timeframe": "72 hours"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["ams", "fra", "cdg", "lhr", "arn"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "EU/EEA only or with SCCs",
+        "backup_location": "Same region or EU-only",
+        "logging_restrictions": [
+          "No secret content logging",
+          "No full URLs (may contain secrets)",
+          "No authorization headers",
+          "Sanitize all logs"
+        ]
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "ams",
+          "allowed_regions": ["ams", "fra", "cdg"],
+          "config": {
+            "primary_region": "ams",
+            "env": {
+              "DEPLOYMENT_REGION": "EU",
+              "ALLOWED_DATA_REGIONS": "ams,fra,cdg,lhr,arn",
+              "STRICT_RESIDENCY": "true"
+            }
+          }
+        },
+        "northflank": {
+          "provider": "BYOC",
+          "regions": ["europe-west-netherlands", "europe-west-frankfurt"]
+        }
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "cookie_consent_required": true,
+        "dpo_contact_required": true,
+        "data_deletion_timeframe": "30 days",
+        "breach_notification_timeframe": "72 hours to DPA, immediate to individuals if high risk"
+      }
+    },
+
+    "UK": {
+      "name": "United Kingdom",
+      "primary_regulation": "UK GDPR + Data Protection Act 2018",
+      "enforcement_date": "2018-05-25",
+      "supervisory_authority": "Information Commissioner's Office (ICO)",
+      "adequacy_status": "EU adequacy decision (expires June 2025)",
+
+      "legal_requirements": [
+        {
+          "id": "UK-GDPR-44",
+          "regulation": "UK GDPR",
+          "article": "Article 44",
+          "requirement": "Same as EU GDPR but enforced by ICO",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2021-01-01"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["lhr"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "UK or EU (while adequacy valid)",
+        "backup_location": "UK or EU"
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "lhr",
+          "allowed_regions": ["lhr", "ams", "fra", "cdg"]
+        }
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "cookie_consent_required": true,
+        "dpo_contact_required": true,
+        "data_deletion_timeframe": "30 days",
+        "breach_notification_timeframe": "72 hours to ICO"
+      },
+
+      "notes": "Monitor June 2025 adequacy renewal. Prepare SCCs as contingency."
+    },
+
+    "Canada": {
+      "name": "Canada",
+      "primary_regulation": "PIPEDA",
+      "enforcement_date": "2001-01-01",
+      "supervisory_authority": "Office of the Privacy Commissioner of Canada (OPC)",
+      "adequacy_status": "No EU adequacy decision",
+
+      "legal_requirements": [
+        {
+          "id": "CA-PIPEDA-CROSS-BORDER",
+          "regulation": "PIPEDA",
+          "article": "Principle 4.1.3",
+          "requirement": "Must disclose cross-border transfers and foreign government access risks",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2001-01-01",
+          "unique_requirement": "Must explicitly disclose US CLOUD Act risk to users"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["yyz", "yyc"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "No strict residency, but disclosure required",
+        "backup_location": "Any, with disclosure"
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "yyz",
+          "allowed_regions": ["yyz", "yyc"]
+        }
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "cloud_act_disclosure_required": true,
+        "foreign_access_warning_required": true,
+        "data_deletion_timeframe": "30 days (best practice)",
+        "breach_notification_timeframe": "Reasonable time to OPC"
+      },
+
+      "notes": "Bill C-27 pending - may introduce stricter requirements"
+    },
+
+    "Brazil": {
+      "name": "Brazil",
+      "primary_regulation": "LGPD (Lei Geral de Proteção de Dados)",
+      "enforcement_date": "2020-09-18",
+      "supervisory_authority": "ANPD (Autoridade Nacional de Proteção de Dados)",
+      "adequacy_status": "No EU adequacy decision",
+
+      "legal_requirements": [
+        {
+          "id": "BR-LGPD-ANPD-SCC",
+          "regulation": "LGPD + ANPD Resolution 19/2024",
+          "article": "Article 33 LGPD + Resolution CD/ANPD No. 19/2024",
+          "requirement": "International transfers require ANPD-approved SCCs",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2025-08-23",
+          "grace_period_ended": "2025-08-23",
+          "notes": "CRITICAL: SCCs now mandatory for cross-border transfers"
+        },
+        {
+          "id": "BR-LGPD-18",
+          "regulation": "LGPD",
+          "article": "Article 18",
+          "requirement": "Data subject rights similar to GDPR",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2020-09-18",
+          "response_timeframe": "15 days"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["gru", "sao"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "Brazil preferred or implement ANPD SCCs",
+        "anpd_scc_required": true
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "gru",
+          "allowed_regions": ["gru"]
+        },
+        "alternative": "Use EU regions with ANPD SCCs"
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "bilingual_required": true,
+        "anpd_scc_disclosure_required": true,
+        "data_deletion_timeframe": "15 days",
+        "breach_notification_timeframe": "Reasonable time to ANPD"
+      },
+
+      "notes": "ANPD SCCs required as of August 23, 2025. Service blocked until implemented."
+    },
+
+    "Australia": {
+      "name": "Australia",
+      "primary_regulation": "Privacy Act 1988 + My Health Records Act 2012",
+      "enforcement_date": "1988-12-16",
+      "supervisory_authority": "Office of the Australian Information Commissioner (OAIC)",
+      "adequacy_status": "No EU adequacy decision",
+
+      "legal_requirements": [
+        {
+          "id": "AU-APP-8",
+          "regulation": "Privacy Act 1988",
+          "article": "APP 8",
+          "requirement": "Cross-border disclosure requires reasonable steps to ensure compliance or explicit consent",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2014-03-12",
+          "notes": "Entity remains accountable for overseas recipient"
+        },
+        {
+          "id": "AU-HEALTHCARE-PROHIBITION",
+          "regulation": "My Health Records Act 2012",
+          "article": "Section 75",
+          "requirement": "Healthcare information MUST NOT leave Australia - ABSOLUTE PROHIBITION",
+          "applies_to": "data-at-rest",
+          "trigger": "health",
+          "enforcement_date": "2012-11-30",
+          "penalty": "Criminal offense",
+          "notes": "NO exceptions, NO safeguards sufficient"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["syd", "mel"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "No general requirement, except healthcare (MUST be in Australia)",
+        "healthcare_data_prohibited": true
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "syd",
+          "allowed_regions": ["syd"]
+        }
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "healthcare_prohibition_warning": true,
+        "data_deletion_timeframe": "30 days (best practice)",
+        "breach_notification_timeframe": "Immediate if likely serious harm"
+      },
+
+      "notes": "Healthcare data ABSOLUTELY PROHIBITED. Consider ToS restriction or content detection."
+    },
+
+    "Japan": {
+      "name": "Japan",
+      "primary_regulation": "APPI (Act on the Protection of Personal Information)",
+      "enforcement_date": "2017-05-30",
+      "supervisory_authority": "Personal Information Protection Commission (PPC)",
+      "adequacy_status": "EU adequacy decision (2019)",
+
+      "legal_requirements": [
+        {
+          "id": "JP-APPI-28",
+          "regulation": "APPI",
+          "article": "Article 28",
+          "requirement": "Cross-border transfer requires consent OR adequate country OR APEC CBPR certification",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2022-04-01",
+          "notes": "EU, UK, NZ recognized as adequate"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["nrt", "kix"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "No strict requirement if consent obtained or adequate country",
+        "consent_required_for_transfer": true
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "nrt",
+          "allowed_regions": ["nrt", "kix"]
+        },
+        "alternative": "Use EU regions (Japan recognizes EU as adequate)"
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "cross_border_consent_required": true,
+        "data_deletion_timeframe": "30 days (best practice)",
+        "breach_notification_timeframe": "Without delay if significant harm"
+      },
+
+      "notes": "APEC CBPR certification recommended for scalability"
+    },
+
+    "Singapore": {
+      "name": "Singapore",
+      "primary_regulation": "PDPA (Personal Data Protection Act)",
+      "enforcement_date": "2014-07-02",
+      "supervisory_authority": "PDPC (Personal Data Protection Commission)",
+      "adequacy_status": "No EU adequacy decision",
+
+      "legal_requirements": [
+        {
+          "id": "SG-PDPA-26",
+          "regulation": "PDPA",
+          "article": "Section 26",
+          "requirement": "Cross-border transfer requires comparable protection",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2014-07-02",
+          "notes": "No strict data residency - comparable protection standard"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["sin"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "Not required - only comparable protection needed"
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "sin",
+          "allowed_regions": ["sin"]
+        }
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "data_deletion_timeframe": "30 days (best practice)",
+        "breach_notification_timeframe": "3 calendar days to PDPC if significant harm"
+      },
+
+      "notes": "Flexible on location, but must ensure comparable protection"
+    },
+
+    "New_Zealand": {
+      "name": "New Zealand",
+      "primary_regulation": "Privacy Act 2020",
+      "enforcement_date": "2020-12-01",
+      "supervisory_authority": "Office of the Privacy Commissioner",
+      "adequacy_status": "EU adequacy decision (2013)",
+
+      "legal_requirements": [
+        {
+          "id": "NZ-IPP-12",
+          "regulation": "Privacy Act 2020",
+          "article": "IPP 12",
+          "requirement": "Cross-border disclosure requires comparable safeguards or explicit authorization",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2020-12-01"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["syd", "akl"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "Not required if comparable safeguards"
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "syd",
+          "allowed_regions": ["syd"]
+        }
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "data_deletion_timeframe": "20 working days",
+        "breach_notification_timeframe": "Immediate if risk of serious harm"
+      },
+
+      "notes": "Can share infrastructure with Australia"
+    },
+
+    "Switzerland": {
+      "name": "Switzerland",
+      "primary_regulation": "FADP (Federal Act on Data Protection)",
+      "enforcement_date": "2023-09-01",
+      "supervisory_authority": "FDPIC (Federal Data Protection and Information Commissioner)",
+      "adequacy_status": "EU adequacy decision (2000)",
+
+      "legal_requirements": [
+        {
+          "id": "CH-FADP-16",
+          "regulation": "FADP",
+          "article": "Article 16",
+          "requirement": "Cross-border disclosure requires adequate protection",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2023-09-01",
+          "notes": "Swiss-US Data Privacy Framework active since Sept 2024"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["fra", "ams", "cdg"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "EU regions acceptable (closely aligned with GDPR)"
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "fra",
+          "allowed_regions": ["fra", "ams", "cdg"]
+        }
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "data_deletion_timeframe": "30 days (best practice)",
+        "breach_notification_timeframe": "Immediate if high risk"
+      },
+
+      "notes": "Very similar to GDPR - can share EU infrastructure"
+    },
+
+    "United_States": {
+      "name": "United States",
+      "primary_regulation": "Various (CCPA, HIPAA, etc.)",
+      "enforcement_date": "Varies by state",
+      "supervisory_authority": "FTC + State AGs",
+      "adequacy_status": "EU-US Data Privacy Framework (2023)",
+
+      "legal_requirements": [
+        {
+          "id": "US-CLOUD-ACT",
+          "regulation": "CLOUD Act",
+          "article": "18 U.S.C. § 2713",
+          "requirement": "US government can compel US companies to produce data stored abroad",
+          "applies_to": "both",
+          "trigger": "all-data",
+          "enforcement_date": "2018-03-23",
+          "notes": "Conflicts with EU GDPR Article 48"
+        }
+      ],
+
+      "technical_requirements": {
+        "allowed_regions": ["ewr", "ord", "sjc", "iad"],
+        "encryption_at_rest": "AES-256",
+        "encryption_in_transit": "TLS 1.3",
+        "data_residency": "No federal requirement (except state laws like CCPA)"
+      },
+
+      "deployment_config": {
+        "fly_io": {
+          "primary_region": "ewr",
+          "allowed_regions": ["ewr", "ord", "sjc", "iad"]
+        }
+      },
+
+      "customer_disclosure": {
+        "privacy_policy_required": true,
+        "state_specific_requirements": true,
+        "data_deletion_timeframe": "Varies by state (CA: 45 days)",
+        "breach_notification_timeframe": "Varies by state"
+      },
+
+      "notes": "Complex multi-state compliance. CLOUD Act creates conflict with EU GDPR."
+    }
+  },
+
+  "jurisdiction_conflicts": [
+    {
+      "conflict_id": "CONFLICT-001",
+      "jurisdiction_a": "EU",
+      "requirement_a": "GDPR Article 44: Data transfer to third countries requires adequacy or SCCs",
+      "jurisdiction_b": "US",
+      "requirement_b": "US CLOUD Act allows government access to data held by US companies",
+      "conflict_type": "impossible",
+      "severity": "critical",
+      "resolution": "Deploy EU users on EU-only infrastructure; Use separate US deployment for US users",
+      "cost_monthly_usd": 300,
+      "evidence": "Meta €1.2B fine, Uber €290M fine, TikTok €530M projected fine"
+    },
+    {
+      "conflict_id": "CONFLICT-002",
+      "jurisdiction_a": "EU",
+      "requirement_a": "GDPR Article 44: EU data should remain in EU",
+      "jurisdiction_b": "Australia",
+      "requirement_b": "My Health Records Act: Healthcare data MUST NOT leave Australia",
+      "conflict_type": "impossible",
+      "severity": "critical",
+      "resolution": "Prohibit healthcare data in ToS for Australian users OR separate AU deployment",
+      "cost_monthly_usd": 250
+    },
+    {
+      "conflict_id": "CONFLICT-003",
+      "jurisdiction_a": "Japan",
+      "requirement_a": "APPI Article 28: Cross-border transfer requires consent",
+      "jurisdiction_b": "Brazil",
+      "requirement_b": "LGPD + ANPD Resolution 19/2024: Requires ANPD-approved SCCs",
+      "conflict_type": "expensive",
+      "severity": "high",
+      "resolution": "Implement both: APEC CBPR for Japan, ANPD SCCs for Brazil",
+      "cost_monthly_usd": 150
+    },
+    {
+      "conflict_id": "CONFLICT-004",
+      "jurisdiction_a": "Canada",
+      "requirement_a": "PIPEDA: Must disclose foreign government access risk (US CLOUD Act)",
+      "jurisdiction_b": "EU",
+      "requirement_b": "GDPR Article 48: Prohibit compliance with foreign requests without MLAT",
+      "conflict_type": "expensive",
+      "severity": "high",
+      "resolution": "Separate privacy policies: Canada version with CLOUD Act disclosure; EU version with Article 48 protection",
+      "cost_monthly_usd": 200
+    }
+  ],
+
+  "deployment_patterns": {
+    "eu_strict": {
+      "name": "EU-Strict (MVP Recommended)",
+      "target_jurisdictions": ["EU", "UK", "Switzerland", "Norway", "Iceland"],
+      "cost_monthly_usd": 200,
+      "complexity": "low",
+      "config": {
+        "fly_io": {
+          "primary_region": "ams",
+          "allowed_regions": ["ams", "fra", "cdg", "lhr"]
+        }
+      },
+      "pros": [
+        "Minimal compliance risk",
+        "Single regulatory framework",
+        "Adequate for 3-4 jurisdictions"
+      ],
+      "cons": [
+        "Higher latency for APAC/Americas users",
+        "Cannot legally serve some jurisdictions"
+      ]
+    },
+
+    "multi_region": {
+      "name": "Multi-Region with Geo-Fencing",
+      "target_jurisdictions": ["EU", "UK", "Switzerland", "Japan", "Singapore", "Canada", "NZ", "Australia"],
+      "cost_monthly_usd": 700,
+      "complexity": "high",
+      "clusters": {
+        "eu": {
+          "regions": ["ams", "fra", "cdg", "lhr"],
+          "serves": ["EU", "UK", "Switzerland"]
+        },
+        "apac": {
+          "regions": ["sin", "nrt", "syd"],
+          "serves": ["Japan", "Singapore", "Australia", "NZ"]
+        },
+        "americas": {
+          "regions": ["yyz", "ewr"],
+          "serves": ["Canada", "US"]
+        }
+      },
+      "pros": [
+        "Lower latency globally",
+        "Compliance with most jurisdictions",
+        "Scalable architecture"
+      ],
+      "cons": [
+        "3x infrastructure cost",
+        "Complex geo-routing logic",
+        "Multiple privacy policies"
+      ]
+    },
+
+    "hybrid": {
+      "name": "Hybrid (EU Base + Selective Expansion)",
+      "target_jurisdictions": ["EU", "UK", "Switzerland", "Japan", "Singapore", "Canada", "NZ"],
+      "cost_monthly_usd": 350,
+      "complexity": "medium",
+      "config": {
+        "primary_deployment": "EU (ams, fra, cdg)",
+        "sccs_implemented": ["Japan", "Singapore", "Canada", "NZ"]
+      },
+      "pros": [
+        "Single infrastructure (lower cost)",
+        "Serves most jurisdictions",
+        "Simpler operations"
+      ],
+      "cons": [
+        "Higher latency for APAC/Americas",
+        "Requires robust SCC framework",
+        "Some jurisdictions blocked"
+      ]
+    }
+  },
+
+  "compliance_scorecard": {
+    "metrics": [
+      {
+        "metric": "Data Residency Compliance",
+        "jurisdictions_compliant": ["EU", "UK", "Switzerland", "Canada", "Japan", "Singapore", "NZ"],
+        "jurisdictions_at_risk": ["Brazil (needs ANPD SCCs)", "Australia (healthcare prohibited)"]
+      },
+      {
+        "metric": "Encryption Standards",
+        "status": "compliant",
+        "implementation": "AES-256 at rest, TLS 1.3 in transit"
+      },
+      {
+        "metric": "Breach Notification Readiness",
+        "status": "prepared",
+        "templates_ready": true,
+        "fastest_requirement": "72 hours (GDPR)"
+      },
+      {
+        "metric": "Data Subject Rights",
+        "status": "compliant",
+        "fastest_response_required": "15 days (Brazil LGPD)"
+      }
+    ]
+  },
+
+  "next_actions": {
+    "immediate": [
+      "Implement ANPD SCCs for Brazil compliance (deadline: August 23, 2025 PASSED)",
+      "Deploy EU-strict pattern for MVP launch",
+      "Legal review of privacy policies ($5k-15k)"
+    ],
+    "short_term": [
+      "Monitor UK adequacy decision renewal (June 2025)",
+      "Implement APEC CBPR certification for Japan",
+      "Set up compliance monitoring dashboard"
+    ],
+    "long_term": [
+      "Evaluate multi-region deployment (if scale justifies)",
+      "Consider Australian sovereign deployment if healthcare market targeted",
+      "Annual compliance audit and policy updates"
+    ]
+  },
+
+  "sources": [
+    {
+      "name": "GDPR Enforcement Tracker",
+      "url": "https://www.enforcementtracker.com/"
+    },
+    {
+      "name": "CMS GDPR Enforcement Tracker Report 2024/2025",
+      "url": "https://cms.law/en/int/publication/gdpr-enforcement-tracker-report/numbers-and-figures"
+    },
+    {
+      "name": "GDPR Info - Official GDPR Text",
+      "url": "https://gdpr-info.eu/"
+    },
+    {
+      "name": "Canada PIPEDA - Office of the Privacy Commissioner",
+      "url": "https://www.priv.gc.ca/"
+    },
+    {
+      "name": "Brazil ANPD Resolution 19/2024",
+      "url": "https://www.gov.br/anpd"
+    },
+    {
+      "name": "Australia OAIC - Privacy Act",
+      "url": "https://www.oaic.gov.au/"
+    },
+    {
+      "name": "Japan APPI - Personal Information Protection Commission",
+      "url": "https://www.ppc.go.jp/en/"
+    },
+    {
+      "name": "Singapore PDPA - PDPC",
+      "url": "https://www.pdpc.gov.sg/"
+    },
+    {
+      "name": "New Zealand Privacy Act 2020",
+      "url": "https://www.privacy.org.nz/"
+    },
+    {
+      "name": "Switzerland FADP - FDPIC",
+      "url": "https://www.edoeb.admin.ch/"
+    },
+    {
+      "name": "Fly.io Regions Documentation",
+      "url": "https://fly.io/docs/reference/regions/"
+    },
+    {
+      "name": "Northflank Cloud Providers",
+      "url": "https://northflank.com/cloud/"
+    }
+  ]
+}
