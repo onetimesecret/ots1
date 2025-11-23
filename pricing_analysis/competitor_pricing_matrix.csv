@@ -1,0 +1,23 @@
+Competitor,Tier_Name,Monthly_Price_Per_User_USD,Annual_Price_Per_User_USD,Min_Users,SSO_Included,Single_Tenant_Option,Key_Features,Pricing_URL,Verified_Date
+Bitwarden,Teams,4.00,48.00,Unlimited,No,No,"Unlimited users, premium features, data sharing, directory integration, event logs",https://bitwarden.com/pricing/business/,2025-01-23
+Bitwarden,Enterprise,6.00,72.00,Unlimited,Yes,Yes,"SSO login, enterprise policies, directory sync, self-host option",https://bitwarden.com/pricing/business/,2025-01-23
+Dashlane,Business,8.00,96.00,1,Yes,No,"Unlimited passwords, SSO, SCIM provisioning, activity logs, VPN, dark web monitoring",https://www.dashlane.com/pricing,2025-01-23
+Dashlane,Omnix,11.00,132.00,1,Yes,No,"Credential risk detection, phishing alerts, automated security reminders",https://www.dashlane.com/pricing,2025-01-23
+HashiCorp Vault,Dedicated Dev,243.24,2918.88,N/A,Yes,Yes,"Hourly base: $1.58/hr ($360/mo min), development tier, single tenant cluster",https://cloud.hashicorp.com/products/vault/pricing,2025-01-23
+HashiCorp Vault,Dedicated Essentials,Custom,Custom,N/A,Yes,Yes,"Single tenant cluster, base cost + per-client cost, contract pricing available",https://cloud.hashicorp.com/products/vault/pricing,2025-01-23
+HashiCorp Vault,Dedicated Standard,Custom,Custom,N/A,Yes,Yes,"Single tenant cluster, enhanced features, contract pricing available",https://cloud.hashicorp.com/products/vault/pricing,2025-01-23
+NordPass,Teams,1.79,21.48,10,Yes,"No","Google Workspace SSO, company settings, up to 10 users",https://nordpass.com/plans/business/,2025-01-23
+NordPass,Business,2.51,30.12,Unlimited,Yes,No,"Shared folders, security dashboard, groups, data breach scanner, up to ~250 users",https://nordpass.com/plans/business/,2025-01-23
+NordPass,Enterprise,3.77,45.24,Unlimited,Yes,No,"SSO with Azure AD/MS ADFS/Okta, user provisioning, unlimited seats, dedicated account manager",https://nordpass.com/plans/business/,2025-01-23
+Zoho Vault,Standard,1.00,12.00,1,No,No,"Basic password management, unlimited passwords on unlimited devices",https://www.zoho.com/vault/pricing.html,2025-01-23
+Zoho Vault,Professional,4.00,48.00,5,Yes,No,"SSO integration, advanced sharing, password policies, 10% discount on annual",https://www.zoho.com/vault/pricing.html,2025-01-23
+Zoho Vault,Enterprise,7.00,84.00,Custom,Yes,No,"Advanced SSO, threat analytics, dedicated support, enhanced security",https://www.zoho.com/vault/pricing.html,2025-01-23
+RoboForm,Business,3.33,39.95,1,Yes,No,"SSO integration, SCIM provisioning, activity logs, centralized admin, 24/7 support",https://www.roboform.com/pricing-business,2025-01-23
+RoboForm,Enterprise,Custom,Custom,1000+,Yes,Yes,"Volume-based pricing, self-host option, dedicated support, custom SLA",https://www.roboform.com/pricing-business,2025-01-23
+Keeper,Business,2.00,24.00,5,No,No,"Basic team features, role-based access, audit logs",https://www.keepersecurity.com/pricing/business-and-enterprise.html,2025-01-23
+Keeper,Enterprise,Custom,Custom,250+,Yes,Yes,"SSO, SCIM, custom pricing ($30-35/yr at 250-500 users, $15-25/yr at 1000+)",https://www.keepersecurity.com/pricing/business-and-enterprise.html,2025-01-23
+Passwordstate,Client Access License,N/A,66.04,1,No,Yes,"Lifetime license with maintenance, on-premises, per-user CAL",https://www.passwordstate.com/pricing.aspx,2025-01-23
+Passwordstate,Enterprise,N/A,7529.35,Unlimited,Yes,Yes,"Lifetime license, unlimited users, single production installation, on-premises",https://www.passwordstate.com/pricing.aspx,2025-01-23
+Pleasant Password Server,Standard,N/A,95.00,Variable,Yes,Yes,"One-time license fee, on-premises, SAML SSO support, perpetual license",https://pleasantpasswords.com/purchase,2025-01-23
+Pleasant Password Server,Enterprise Plus,N/A,1552.00,Variable,Yes,Yes,"One-time license, advanced features, on-premises, SAML SSO, upgrade & support plan separate",https://pleasantpasswords.com/purchase,2025-01-23
+AWS Secrets Manager,Standard,0.40,4.80,N/A,N/A,No,"Per secret pricing, $0.05 per 10K API calls, fully managed, globally uniform pricing",https://aws.amazon.com/secrets-manager/pricing/,2025-01-23
