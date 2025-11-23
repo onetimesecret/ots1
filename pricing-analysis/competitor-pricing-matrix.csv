@@ -1,0 +1,33 @@
+Competitor,Tier Name,Price per User per Month (USD),Minimum Users,Maximum Users,SSO Available,SSO Type,Custom Domain/Branding,Single Tenant Option,Verification URL
+1Password,Teams Starter Pack,$19.95 total (not per user),1,10,No,N/A,Limited,No,https://1password.com/business-pricing
+1Password,Business,$7.99,1,Unlimited,No,N/A,Yes,No,https://1password.com/business-pricing
+1Password,Enterprise,Custom pricing,Contact Sales,Unlimited,Yes,SAML,Yes,No,https://1password.com/business-pricing
+Bitwarden,Free,0,1,2,No,N/A,No,No,https://bitwarden.com/pricing/business/
+Bitwarden,Teams,4,1,Unlimited,No,N/A,Limited,No,https://bitwarden.com/pricing/business/
+Bitwarden,Enterprise,6,1,Unlimited,Yes,"SAML 2.0, OIDC",Yes,Yes (self-host),https://bitwarden.com/pricing/business/
+LastPass,Teams,4,1,50,No,N/A,Limited,No,https://www.lastpass.com/pricing
+LastPass,Business,6,1,Unlimited,Yes,Limited (3 apps),Yes,No,https://www.lastpass.com/pricing
+LastPass,Business + SSO Addon,9,1,Unlimited,Yes,Unlimited apps,Yes,No,https://www.lastpass.com/pricing
+LastPass,Enterprise,Custom (site license),Contact Sales,Unlimited,Yes,Unlimited apps,Yes,No,https://www.lastpass.com/pricing
+Dashlane,Starter,$8,1,10,No,N/A,No,No,https://www.dashlane.com/pricing
+Dashlane,Business,$8+,1,250,No,N/A,Yes,No,https://www.dashlane.com/pricing
+Dashlane,Enterprise,Custom pricing,Contact Sales,Unlimited,Yes,"Azure AD, MS ADFS, Okta",Yes,No,https://www.dashlane.com/pricing
+NordPass,Teams,$1.79,1,10,No,N/A,No,No,https://nordpass.com/plans/business/
+NordPass,Business,$3.99-$5.40,1,250,No,N/A,Yes,No,https://nordpass.com/plans/business/
+NordPass,Enterprise,$3.77+,Unlimited,Unlimited,Yes,"Azure AD, MS ADFS, Okta",Yes,No,https://nordpass.com/plans/business/
+Keeper Security,Business Starter,$2,1,Unlimited,No,N/A,No,No,https://www.keepersecurity.com/pricing/business-and-enterprise.html
+Keeper Security,Business,$3.75,1,Unlimited,No,N/A,Limited,No,https://www.keepersecurity.com/pricing/business-and-enterprise.html
+Keeper Security,Enterprise,Custom pricing,Contact Sales,Unlimited,Yes,SAML 2.0,Yes,No,https://www.keepersecurity.com/pricing/business-and-enterprise.html
+Doppler,Free,0,1,3,No,N/A,No,No,https://www.doppler.com/pricing
+Doppler,Team,21,1,Unlimited,No,N/A,No,No,https://www.doppler.com/pricing
+Doppler,Enterprise,Custom pricing,Contact Sales,Unlimited,Yes,SAML 2.0,Yes,Contact Sales,https://www.doppler.com/pricing
+HashiCorp Vault,Development,$1.58/hour cluster,N/A,25 clients,No,N/A,No,No,https://www.hashicorp.com/products/vault/pricing/
+HashiCorp Vault,Essentials,$360/month minimum,N/A,Unlimited,No,N/A,No,Yes (dedicated cluster),https://www.hashicorp.com/products/vault/pricing/
+HashiCorp Vault,Standard,$360+/month,N/A,Unlimited,Yes,Yes,No,Yes (dedicated cluster),https://www.hashicorp.com/products/vault/pricing/
+HashiCorp Vault,Enterprise Custom,Custom pricing,Contact Sales,Unlimited,Yes,Yes,Yes,Yes,https://www.hashicorp.com/products/vault/pricing/
+Akeyless,Free,0,1,4,No,N/A,No,No,https://www.akeyless.io/pricing/
+Akeyless,Starter,$40/month total,1,4,No,N/A,No,No,https://www.akeyless.io/pricing/
+Akeyless,Enterprise,Custom pricing,Contact Sales,Unlimited,Yes,Yes,Yes (hybrid),https://www.akeyless.io/pricing/
+CyberArk,Workforce Identity - Basic,$2,1,Unlimited,No,N/A,No,No,https://www.cyberark.com/
+CyberArk,Workforce Identity - Standard,$3-$5,1,Unlimited,Limited,Limited,Yes,No,https://www.cyberark.com/
+CyberArk,Privileged Access Manager,~$30000+ (enterprise),Contact Sales,Unlimited,Yes,Yes,Yes,Yes,https://www.cyberark.com/
