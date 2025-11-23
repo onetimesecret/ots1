@@ -1,0 +1,275 @@
+{
+  "simulation_parameters": {
+    "num_simulations": 10000,
+    "current_customers": 230,
+    "current_mrr": 8050,
+    "customer_segments": {
+      "hobbyists": {
+        "ratio": 0.35,
+        "wtp_mean": 25,
+        "wtp_std": 8
+      },
+      "small_teams": {
+        "ratio": 0.3,
+        "wtp_mean": 60,
+        "wtp_std": 20
+      },
+      "businesses": {
+        "ratio": 0.25,
+        "wtp_mean": 140,
+        "wtp_std": 40
+      },
+      "enterprises": {
+        "ratio": 0.1,
+        "wtp_mean": 350,
+        "wtp_std": 150
+      }
+    },
+    "scenarios_tested": {
+      "current_35": [
+        35
+      ],
+      "planned_4tier": [
+        25,
+        75,
+        150,
+        500
+      ],
+      "optimized_6tier": [
+        25,
+        45,
+        75,
+        125,
+        150,
+        300
+      ],
+      "optimized_7tier": [
+        25,
+        45,
+        75,
+        125,
+        150,
+        300,
+        500
+      ],
+      "aggressive_8tier": [
+        19,
+        35,
+        59,
+        89,
+        139,
+        199,
+        349,
+        500
+      ]
+    }
+  },
+  "results_summary": {
+    "mrr_mean": {
+      "aggressive_8tier": 4304.03,
+      "current_35": 7987.15,
+      "optimized_6tier": 5657.2,
+      "optimized_7tier": 5657.14,
+      "planned_4tier": 5657.03
+    },
+    "mrr_std": {
+      "aggressive_8tier": 29.82,
+      "current_35": 31.32,
+      "optimized_6tier": 41.07,
+      "optimized_7tier": 40.9,
+      "planned_4tier": 40.73
+    },
+    "mrr_min": {
+      "aggressive_8tier": 4161,
+      "current_35": 7805,
+      "optimized_6tier": 5425,
+      "optimized_7tier": 5450,
+      "planned_4tier": 5425
+    },
+    "mrr_max": {
+      "aggressive_8tier": 4351,
+      "current_35": 8015,
+      "optimized_6tier": 5725,
+      "optimized_7tier": 5725,
+      "planned_4tier": 5725
+    },
+    "mrr_<lambda_0>": {
+      "aggressive_8tier": 4256.0,
+      "current_35": 7945.0,
+      "optimized_6tier": 5575.0,
+      "optimized_7tier": 5575.0,
+      "planned_4tier": 5575.0
+    },
+    "mrr_<lambda_1>": {
+      "aggressive_8tier": 4351.0,
+      "current_35": 8015.0,
+      "optimized_6tier": 5725.0,
+      "optimized_7tier": 5725.0,
+      "planned_4tier": 5725.0
+    },
+    "retained_customers_mean": {
+      "aggressive_8tier": 226.53,
+      "current_35": 228.2,
+      "optimized_6tier": 226.29,
+      "optimized_7tier": 226.29,
+      "planned_4tier": 226.28
+    },
+    "retained_customers_std": {
+      "aggressive_8tier": 1.57,
+      "current_35": 0.89,
+      "optimized_6tier": 1.64,
+      "optimized_7tier": 1.64,
+      "planned_4tier": 1.63
+    },
+    "retention_rate_mean": {
+      "aggressive_8tier": 0.98,
+      "current_35": 0.99,
+      "optimized_6tier": 0.98,
+      "optimized_7tier": 0.98,
+      "planned_4tier": 0.98
+    },
+    "retention_rate_std": {
+      "aggressive_8tier": 0.01,
+      "current_35": 0.0,
+      "optimized_6tier": 0.01,
+      "optimized_7tier": 0.01,
+      "planned_4tier": 0.01
+    },
+    "arpu_mean": {
+      "aggressive_8tier": 19.0,
+      "current_35": 35.0,
+      "optimized_6tier": 25.0,
+      "optimized_7tier": 25.0,
+      "planned_4tier": 25.0
+    },
+    "arpu_std": {
+      "aggressive_8tier": 0.0,
+      "current_35": 0.0,
+      "optimized_6tier": 0.0,
+      "optimized_7tier": 0.0,
+      "planned_4tier": 0.0
+    },
+    "revenue_change_pct_mean": {
+      "aggressive_8tier": -46.53,
+      "current_35": -0.78,
+      "optimized_6tier": -29.72,
+      "optimized_7tier": -29.72,
+      "planned_4tier": -29.73
+    },
+    "revenue_change_pct_std": {
+      "aggressive_8tier": 0.37,
+      "current_35": 0.39,
+      "optimized_6tier": 0.51,
+      "optimized_7tier": 0.51,
+      "planned_4tier": 0.51
+    },
+    "revenue_change_pct_min": {
+      "aggressive_8tier": -48.31,
+      "current_35": -3.04,
+      "optimized_6tier": -32.61,
+      "optimized_7tier": -32.3,
+      "planned_4tier": -32.61
+    },
+    "revenue_change_pct_max": {
+      "aggressive_8tier": -45.95,
+      "current_35": -0.43,
+      "optimized_6tier": -28.88,
+      "optimized_7tier": -28.88,
+      "planned_4tier": -28.88
+    }
+  },
+  "confidence_intervals": [
+    {
+      "scenario": "current_35",
+      "mrr_mean": 7987.147,
+      "mrr_ci_lower": 7986.533059930177,
+      "mrr_ci_upper": 7987.760940069823,
+      "revenue_change_mean": -0.7807826086956522,
+      "revenue_change_ci_lower": -0.7884091934139505,
+      "revenue_change_ci_upper": -0.7731560239773538,
+      "retention_mean": 0.9921921739130436,
+      "retention_ci_lower": 0.9921159080658606,
+      "retention_ci_upper": 0.9922684397602266
+    },
+    {
+      "scenario": "planned_4tier",
+      "mrr_mean": 5657.03,
+      "mrr_ci_lower": 5656.2316251644515,
+      "mrr_ci_upper": 5657.828374835548,
+      "revenue_change_mean": -29.72633540372671,
+      "revenue_change_ci_lower": -29.73625310354718,
+      "revenue_change_ci_upper": -29.71641770390624,
+      "retention_mean": 0.9838313043478262,
+      "retention_ci_lower": 0.9836924565503397,
+      "retention_ci_upper": 0.9839701521453127
+    },
+    {
+      "scenario": "optimized_6tier",
+      "mrr_mean": 5657.2025,
+      "mrr_ci_lower": 5656.397538361878,
+      "mrr_ci_upper": 5658.007461638123,
+      "revenue_change_mean": -29.72419254658385,
+      "revenue_change_ci_lower": -29.73419207003879,
+      "revenue_change_ci_upper": -29.71419302312891,
+      "retention_mean": 0.983861304347826,
+      "retention_ci_lower": 0.9837213110194569,
+      "retention_ci_upper": 0.9840012976761952
+    },
+    {
+      "scenario": "optimized_7tier",
+      "mrr_mean": 5657.145,
+      "mrr_ci_lower": 5656.343264201128,
+      "mrr_ci_upper": 5657.946735798873,
+      "revenue_change_mean": -29.724906832298142,
+      "revenue_change_ci_lower": -29.73486628321582,
+      "revenue_change_ci_upper": -29.714947381380465,
+      "retention_mean": 0.9838513043478262,
+      "retention_ci_lower": 0.9837118720349788,
+      "retention_ci_upper": 0.9839907366606736
+    },
+    {
+      "scenario": "aggressive_8tier",
+      "mrr_mean": 4304.0301,
+      "mrr_ci_lower": 4303.445636779554,
+      "mrr_ci_upper": 4304.614563220446,
+      "revenue_change_mean": -46.53378757763975,
+      "revenue_change_ci_lower": -46.5410479903161,
+      "revenue_change_ci_upper": -46.5265271649634,
+      "retention_mean": 0.9849039130434784,
+      "retention_ci_lower": 0.9847701685994402,
+      "retention_ci_upper": 0.9850376574875165
+    }
+  ],
+  "cannibalization": [
+    {
+      "scenario": "current_35",
+      "tier_distribution": {
+        "35": 228.2042
+      }
+    },
+    {
+      "scenario": "planned_4tier",
+      "tier_distribution": {
+        "25": 226.2812
+      }
+    },
+    {
+      "scenario": "optimized_6tier",
+      "tier_distribution": {
+        "25": 226.2881
+      }
+    },
+    {
+      "scenario": "optimized_7tier",
+      "tier_distribution": {
+        "25": 226.2858
+      }
+    },
+    {
+      "scenario": "aggressive_8tier",
+      "tier_distribution": {
+        "19": 226.5279
+      }
+    }
+  ]
+}
