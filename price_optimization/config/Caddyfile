@@ -1,0 +1,225 @@
+# =============================================================================
+# Caddy Configuration for Price Optimization API
+# Production-ready reverse proxy and API gateway
+# =============================================================================
+
+{
+    # Global options
+    admin off
+    auto_https disable_redirects
+}
+
+# Price Optimization API Server
+:8080 {
+    # Logging
+    log {
+        output file /var/log/caddy/price-optimization.log {
+            roll_size 100mb
+            roll_keep 10
+        }
+        format json
+        level INFO
+    }
+
+    # CORS configuration
+    @cors_preflight {
+        method OPTIONS
+    }
+
+    handle @cors_preflight {
+        header Access-Control-Allow-Origin *
+        header Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+        header Access-Control-Allow-Headers "Content-Type, Authorization"
+        header Access-Control-Max-Age "3600"
+        respond 204
+    }
+
+    # Security headers
+    header {
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        X-XSS-Protection "1; mode=block"
+        Referrer-Policy "strict-origin-when-cross-origin"
+        Strict-Transport-Security "max-age=31536000; includeSubDomains"
+        -Server
+    }
+
+    # Rate limiting (using rate_limit plugin)
+    rate_limit {
+        zone price_optimization {
+            key {remote_host}
+            events 100
+            window 1m
+        }
+    }
+
+    # =============================================================================
+    # API Endpoints
+    # =============================================================================
+
+    # Health check
+    handle /health {
+        respond "OK" 200
+    }
+
+    # Van Westendorp Analysis
+    handle /api/v1/analysis/van-westendorp {
+        reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+
+            # Timeout for analysis (can take time)
+            transport http {
+                dial_timeout 5s
+                response_header_timeout 30s
+            }
+        }
+    }
+
+    # Price Elasticity Calculation
+    handle /api/v1/analysis/elasticity {
+        reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+
+            transport http {
+                dial_timeout 5s
+                response_header_timeout 60s
+            }
+        }
+    }
+
+    # Monte Carlo Simulation
+    handle /api/v1/simulation/monte-carlo {
+        reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+
+            # Long timeout for simulations
+            transport http {
+                dial_timeout 10s
+                response_header_timeout 300s  # 5 minutes
+            }
+        }
+    }
+
+    # Gradient Descent Optimization
+    handle /api/v1/optimization/price {
+        reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+
+            transport http {
+                dial_timeout 5s
+                response_header_timeout 60s
+            }
+        }
+    }
+
+    # A/B Test Management
+    handle /api/v1/ab-test/* {
+        reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+        }
+    }
+
+    # Price Recommendation
+    handle /api/v1/recommend/price {
+        # Cache price recommendations for 5 minutes
+        cache {
+            ttl 5m
+            key {method} {host} {path} {query}
+        }
+
+        reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+        }
+    }
+
+    # Metrics and Monitoring
+    handle /api/v1/metrics/* {
+        reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+        }
+    }
+
+    # Reports and Analytics
+    handle /api/v1/reports/* {
+        reverse_proxy localhost:8000 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+
+            transport http {
+                dial_timeout 5s
+                response_header_timeout 120s
+            }
+        }
+    }
+
+    # Serve API documentation
+    handle /docs/* {
+        root * /var/www/price-optimization/docs
+        file_server
+    }
+
+    # Default response
+    handle {
+        respond "Price Optimization API v1.0" 200
+    }
+}
+
+# Admin/Internal API (restricted access)
+:8081 {
+    # IP allowlist for internal access only
+    @allowed {
+        remote_ip 127.0.0.1 ::1 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+    }
+
+    handle @allowed {
+        # Database direct queries (admin only)
+        handle /admin/db/* {
+            reverse_proxy localhost:8000 {
+                header_up X-Real-IP {remote_host}
+                header_up X-Forwarded-For {remote_host}
+            }
+        }
+
+        # System metrics
+        handle /admin/metrics {
+            reverse_proxy localhost:9090  # Prometheus
+        }
+
+        # Logs
+        handle /admin/logs {
+            root * /var/log/price-optimization
+            file_server browse
+        }
+    }
+
+    # Deny external access
+    handle {
+        respond "Access Denied" 403
+    }
+}
+
+# =============================================================================
+# Production TLS Configuration (when deployed)
+# =============================================================================
+
+# Uncomment for production with real domain
+# price-optimization.onetimesecret.com {
+#     # TLS configuration
+#     tls {
+#         protocols tls1.2 tls1.3
+#         ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+#     }
+#
+#     # Enable HTTP/2
+#     protocols h1 h2
+#
+#     # Same handlers as above
+#     import :8080
+# }
