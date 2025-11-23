@@ -1,0 +1,119 @@
+{
+  "templates": [
+    {
+      "id": "at_risk_email_1",
+      "name": "At-Risk - Gentle Nudge",
+      "campaign_type": "at_risk_email",
+      "sequence_position": 1,
+      "trigger_delay_days": 0,
+      "subject": "We noticed you haven't been active lately - can we help?",
+      "from_name": "{{csm_name}}",
+      "from_email": "success@onetimesecret.com",
+      "reply_to": "success@onetimesecret.com",
+      "body_html": "<!DOCTYPE html><html><body style='font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif; line-height: 1.6; color: #333;'><p>Hi {{first_name}},</p><p>We noticed it's been {{days_since_login}} days since you last logged into OneTimeSecret. Everything okay?</p><p>We're here to help if you're running into any issues or have questions about how to get the most out of your account.</p><p style='margin-top: 24px;'><strong>Quick question:</strong> What's the #1 thing we could do to make OneTimeSecret more valuable for you?</p><p><a href='mailto:{{reply_to}}?subject=Re: Making OneTimeSecret more valuable' style='display: inline-block; padding: 12px 24px; background: #0066cc; color: white; text-decoration: none; border-radius: 4px; margin: 12px 0;'>Reply to this email</a></p>{{#if show_feature_suggestion}}<p style='margin-top: 24px; padding: 16px; background: #f8f9fa; border-left: 4px solid #0066cc;'><strong>P.S.</strong> Did you know you can {{suggest_feature}}? <a href='{{feature_guide_url}}'>Here's a quick guide →</a></p>{{/if}}<p style='margin-top: 32px;'>Best,<br>{{csm_name}}<br>Customer Success Team<br>OneTimeSecret</p></body></html>",
+      "body_text": "Hi {{first_name}},\n\nWe noticed it's been {{days_since_login}} days since you last logged into OneTimeSecret. Everything okay?\n\nWe're here to help if you're running into any issues or have questions about how to get the most out of your account.\n\nQuick question: What's the #1 thing we could do to make OneTimeSecret more valuable for you?\n\nJust reply to this email - we read every response.\n\n{{#if show_feature_suggestion}}P.S. Did you know you can {{suggest_feature}}? Here's a quick guide: {{feature_guide_url}}{{/if}}\n\nBest,\n{{csm_name}}\nCustomer Success Team\nOneTimeSecret",
+      "variables": [
+        "first_name",
+        "days_since_login",
+        "csm_name",
+        "show_feature_suggestion",
+        "suggest_feature",
+        "feature_guide_url"
+      ],
+      "success_metrics": {
+        "target_open_rate": 0.15,
+        "target_reply_rate": 0.03,
+        "target_reactivation_rate": 0.20
+      }
+    },
+    {
+      "id": "zombie_recent_1",
+      "name": "Recent Zombie - We Miss You",
+      "campaign_type": "zombie_sequence",
+      "sequence_position": 1,
+      "trigger_delay_days": 0,
+      "subject": "{{first_name}}, are you still using OneTimeSecret?",
+      "from_name": "{{sender_name}}",
+      "from_email": "{{sender_email}}",
+      "reply_to": "{{sender_email}}",
+      "body_html": "<!DOCTYPE html><html><body style='font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif; line-height: 1.6; color: #333;'><p>Hi {{first_name}},</p><p>I was looking at active accounts this morning and noticed we haven't seen you in a while.</p><p>I wanted to reach out personally because:</p><ol><li>Your account is still active (and being billed ${{monthly_revenue}}/month)</li><li>We'd hate for you to be paying for something you're not using</li><li>If there's something we can fix, I want to know about it</li></ol><div style='background: #fff3cd; border-left: 4px solid #ff9800; padding: 16px; margin: 24px 0;'><p style='margin: 0; font-weight: bold; color: #664d03;'>Can you help me understand what happened?</p><p style='margin: 8px 0 0 0;'><a href='mailto:{{reply_to}}?subject=Re: My OneTimeSecret experience' style='color: #0066cc;'>Reply with your story →</a></p></div><p>If OneTimeSecret isn't the right fit right now, totally understand - just let me know and I'll help you pause or cancel your account.</p><p>But if you just got busy or forgot about us, here's a quick refresher on what you can do with your {{plan_type}} account:</p><ul>{{#each top_features}}<li><strong>{{this.name}}:</strong> {{this.benefit}}</li>{{/each}}</ul><p style='margin-top: 32px;'>Thanks for being a customer,<br>{{sender_name}}</p><p style='font-size: 14px; color: #666; margin-top: 24px;'><em>P.S. This is a real email from a real person. Hit reply - I read every message.</em></p></body></html>",
+      "body_text": "Hi {{first_name}},\n\nI was looking at active accounts this morning and noticed we haven't seen you in a while.\n\nI wanted to reach out personally because:\n\n1. Your account is still active (and being billed ${{monthly_revenue}}/month)\n2. We'd hate for you to be paying for something you're not using\n3. If there's something we can fix, I want to know about it\n\n**Can you help me understand what happened?**\n\nReply to this email and tell me your story.\n\nIf OneTimeSecret isn't the right fit right now, totally understand - just let me know and I'll help you pause or cancel your account.\n\nBut if you just got busy or forgot about us, here's a quick refresher on what you can do with your {{plan_type}} account:\n\n{{#each top_features}}- {{this.name}}: {{this.benefit}}\n{{/each}}\n\nThanks for being a customer,\n{{sender_name}}\n\nP.S. This is a real email from a real person. Hit reply - I read every message.",
+      "variables": [
+        "first_name",
+        "monthly_revenue",
+        "plan_type",
+        "sender_name",
+        "sender_email",
+        "top_features"
+      ],
+      "success_metrics": {
+        "target_open_rate": 0.35,
+        "target_reply_rate": 0.08,
+        "target_reactivation_rate": 0.25
+      }
+    },
+    {
+      "id": "zombie_winback",
+      "name": "Established Zombie - Winback Offer",
+      "campaign_type": "winback",
+      "sequence_position": 1,
+      "trigger_delay_days": 30,
+      "subject": "We want you back: ${{incentive_value}} credit + VIP setup",
+      "from_name": "Head of Customer Success",
+      "from_email": "success@onetimesecret.com",
+      "reply_to": "success@onetimesecret.com",
+      "body_html": "<!DOCTYPE html><html><body style='font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif; line-height: 1.6; color: #333;'><p>{{first_name}},</p><p>It's been {{zombie_duration}} days since we've seen you in OneTimeSecret.</p><p style='font-size: 18px; margin: 24px 0;'>I'll be direct: <strong>We want you back.</strong></p><p>If you log in and use OneTimeSecret in the next 7 days, here's what you get:</p><div style='background: #e8f5e9; border: 2px solid #4caf50; border-radius: 8px; padding: 20px; margin: 24px 0;'><ul style='margin: 0; padding-left: 20px;'><li style='margin: 8px 0;'><strong>${{incentive_value}} account credit</strong> ({{months_free}} months free)</li><li style='margin: 8px 0;'><strong>Free 1-on-1 VIP setup session</strong> with our product team</li><li style='margin: 8px 0;'><strong>Priority support for 90 days</strong></li><li style='margin: 8px 0;'><strong>Custom integration help</strong> (if needed)</li></ul></div><p style='margin: 24px 0;'>Why are we doing this? Because our data shows that customers who make it past the first 90 days love the product and stay for years. We want to give you every chance to get there.</p><p style='text-align: center; margin: 32px 0;'><a href='{{claim_offer_url}}' style='display: inline-block; padding: 16px 32px; background: #4caf50; color: white; text-decoration: none; border-radius: 6px; font-size: 18px; font-weight: bold;'>Claim Your Welcome-Back Package →</a></p><p style='font-size: 14px; color: #666;'><strong>Offer expires:</strong> {{deadline}}</p><p style='margin-top: 32px;'>If you're not interested, no problem - just let me know and we'll stop bothering you.</p><p style='margin-top: 32px;'>{{head_of_cs_name}}<br>Head of Customer Success<br>OneTimeSecret</p></body></html>",
+      "body_text": "{{first_name}},\n\nIt's been {{zombie_duration}} days since we've seen you in OneTimeSecret.\n\nI'll be direct: **We want you back.**\n\nIf you log in and use OneTimeSecret in the next 7 days, here's what you get:\n\n✓ ${{incentive_value}} account credit ({{months_free}} months free)\n✓ Free 1-on-1 VIP setup session with our product team\n✓ Priority support for 90 days\n✓ Custom integration help (if needed)\n\nWhy are we doing this? Because our data shows that customers who make it past the first 90 days love the product and stay for years. We want to give you every chance to get there.\n\n**Claim your welcome-back package:**\n{{claim_offer_url}}\n\nOffer expires: {{deadline}}\n\nIf you're not interested, no problem - just let me know and we'll stop bothering you.\n\n{{head_of_cs_name}}\nHead of Customer Success\nOneTimeSecret",
+      "variables": [
+        "first_name",
+        "zombie_duration",
+        "incentive_value",
+        "months_free",
+        "claim_offer_url",
+        "deadline",
+        "head_of_cs_name"
+      ],
+      "success_metrics": {
+        "target_open_rate": 0.35,
+        "target_click_rate": 0.18,
+        "target_reactivation_rate": 0.18
+      }
+    },
+    {
+      "id": "sunset_final",
+      "name": "Sunset - Final Notice",
+      "campaign_type": "sunset",
+      "sequence_position": 1,
+      "trigger_delay_days": 75,
+      "subject": "Last email from us - your account expires in 15 days",
+      "from_name": "OneTimeSecret Billing",
+      "from_email": "billing@onetimesecret.com",
+      "reply_to": "support@onetimesecret.com",
+      "body_html": "<!DOCTYPE html><html><body style='font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif; line-height: 1.6; color: #333;'><p>{{first_name}},</p><p><strong>This is the last email you'll receive from us.</strong></p><p>Your OneTimeSecret account ({{custid}}) has been inactive for {{zombie_duration}} days.</p><div style='background: #fff3cd; border-left: 4px solid #ff9800; padding: 16px; margin: 24px 0;'><p style='margin: 0; font-weight: bold;'>Here's what happens next:</p><ul style='margin: 12px 0 0 0; padding-left: 20px;'><li><strong>{{deadline_date}}:</strong> Your subscription will be automatically canceled</li><li><strong>{{deletion_date}}:</strong> Your data will be deleted (permanent)</li></ul></div><div style='margin: 32px 0;'><p style='font-weight: bold; margin-bottom: 12px;'>To keep your account:</p><p><a href='{{login_url}}' style='display: inline-block; padding: 12px 24px; background: #0066cc; color: white; text-decoration: none; border-radius: 4px;'>Log in before {{deadline_date}} →</a></p></div><div style='margin: 32px 0;'><p style='font-weight: bold; margin-bottom: 12px;'>To cancel immediately:</p><p>Save ${{remaining_month_revenue}} on this month's bill: <a href='{{cancel_url}}' style='color: #0066cc;'>Cancel now →</a></p></div><div style='margin: 32px 0;'><p style='font-weight: bold; margin-bottom: 12px;'>To download your data:</p><p>Export everything before it's deleted: <a href='{{export_url}}' style='color: #0066cc;'>Download data →</a></p></div><p style='margin-top: 32px;'>Questions? Reply to this email.</p><p>OneTimeSecret Billing Team</p></body></html>",
+      "body_text": "{{first_name}},\n\nThis is the last email you'll receive from us.\n\nYour OneTimeSecret account ({{custid}}) has been inactive for {{zombie_duration}} days.\n\n**Here's what happens next:**\n\n{{deadline_date}}: Your subscription will be automatically canceled\n{{deletion_date}}: Your data will be deleted (permanent)\n\n**To keep your account:**\nLog in before {{deadline_date}}: {{login_url}}\n\n**To cancel immediately:**\nSave ${{remaining_month_revenue}} on this month's bill: {{cancel_url}}\n\n**To download your data:**\nExport everything before it's deleted: {{export_url}}\n\nQuestions? Reply to this email.\n\nOneTimeSecret Billing Team",
+      "variables": [
+        "first_name",
+        "custid",
+        "zombie_duration",
+        "deadline_date",
+        "deletion_date",
+        "remaining_month_revenue",
+        "login_url",
+        "cancel_url",
+        "export_url"
+      ],
+      "success_metrics": {
+        "target_open_rate": 0.45,
+        "target_action_rate": 0.40
+      }
+    }
+  ],
+  "template_metadata": {
+    "version": "1.0",
+    "last_updated": "2025-11-23",
+    "total_templates": 4,
+    "supported_formats": ["html", "text"],
+    "templating_engine": "handlebars",
+    "notes": "All templates support Handlebars syntax for variable interpolation and conditional logic"
+  }
+}
