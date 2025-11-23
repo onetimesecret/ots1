@@ -1,0 +1,153 @@
+YEAR 1 - BASELINE (SINGLE TIER)
+Metric,Value,Calculation
+Starting Customers,230,Given
+Annual Churn Rate,7%,Given
+Customers Lost,-16,230 × 0.07
+Ending Customers,214,230 - 16
+Monthly Price,$35,Given
+Annual Price per Customer,$420,$35 × 12
+Starting ARR,$96600,230 × $420
+Ending ARR,$89880,214 × $420
+ARR Change,-$6720,$89880 - $96600
+YoY Growth Rate,-7.0%,-$6720 / $96600
+Net Revenue Retention,93.0%,$89880 / $96600
+
+YEAR 2 - TIER INTRODUCTION
+STARTING POSITION
+Base Customers (from Y1),214,Year 1 ending
+Customers to Redistribute,64,214 × 30%
+Customers Staying on Legacy,150,214 × 70%
+
+TIER MIGRATION DISTRIBUTION
+Individual (15% of base),32,214 × 0.15
+Team (13% of base),28,214 × 0.13
+Enterprise (2% of base),4,214 × 0.02
+Legacy (70% of base),150,214 × 0.70
+Total Check,214,Should equal base
+
+NEW CUSTOMER ACQUISITION (15% growth)
+New Customers,32,214 × 0.15
+Individual (40% of new),13,32 × 0.40
+Team (50% of new),16,32 × 0.50
+Enterprise (10% of new),3,32 × 0.10
+Total Check,32,Should equal new
+
+PRE-CHURN TOTALS
+Individual,45,32 + 13
+Team,44,28 + 16
+Enterprise,7,4 + 3
+Legacy,150,Unchanged
+Total Customers,246,Sum all tiers
+
+CHURN APPLICATION (5% annual)
+Individual Churn,-2,45 × 0.05
+Team Churn,-2,44 × 0.05
+Enterprise Churn,0,7 × 0.05 (rounded)
+Legacy Churn,-8,150 × 0.05
+
+YEAR 2 ENDING CUSTOMERS
+Individual,43,45 - 2
+Team,42,44 - 2
+Enterprise,7,7 - 0
+Legacy,142,150 - 8
+Total Customers,234,Sum all tiers
+
+REVENUE BY TIER (Year 2 End)
+Tier,Customers,Avg Users,Monthly Price,Annual Price,Total ARR
+Individual,43,1,$19,$228,$9804
+Team,42,5,$29/user × 5 = $145,$1740,$73080
+Enterprise,7,25,$49/user × 25 = $1225,$14700,$102900
+Legacy,142,1,$35,$420,$59640
+TOTAL,234,—,—,—,$245424
+
+YEAR 2 NRR CALCULATION
+Year 1 Ending ARR,$89880,Baseline
+Year 2 ARR from Y1 Cohort Only:
+  Individual (32 migrated),32,$228,$7296
+  Team (28 migrated),28,$1740,$48720
+  Enterprise (4 migrated),4,$14700,$58800
+  Legacy (150 → 142 after churn),142,$420,$59640
+Total Y1 Cohort in Y2,206,—,$174456
+NRR,194.1%,$174456 / $89880
+
+YEAR 3 - ACCELERATED GROWTH
+STARTING POSITION
+Base Customers (from Y2),234,Year 2 ending
+
+NEW CUSTOMER ACQUISITION (20% growth)
+New Customers,47,234 × 0.20
+Individual (35% of new),16,47 × 0.35
+Team (50% of new),24,47 × 0.50
+Enterprise (15% of new),7,47 × 0.15
+Total Check,47,Should equal new
+
+PRE-CHURN TOTALS
+Individual,59,43 + 16
+Team,66,42 + 24
+Enterprise,14,7 + 7
+Legacy,142,Unchanged
+Total Customers,281,Sum all tiers
+
+CHURN APPLICATION (5% annual)
+Individual Churn,-3,59 × 0.05
+Team Churn,-3,66 × 0.05
+Enterprise Churn,-1,14 × 0.05
+Legacy Churn,-7,142 × 0.05
+
+YEAR 3 ENDING CUSTOMERS
+Individual,56,59 - 3
+Team,63,66 - 3
+Enterprise,13,14 - 1
+Legacy,135,142 - 7
+Total Customers,267,Sum all tiers
+
+REVENUE BY TIER (Year 3 End)
+Tier,Customers,Avg Users,Annual Price,Total ARR,% of ARR
+Individual,56,1,$228,$12768,3.4%
+Team,63,5,$1740,$109620,29.6%
+Enterprise,13,25,$14700,$191100,51.6%
+Legacy,135,1,$420,$56700,15.3%
+TOTAL,267,—,—,$370188,100%
+
+YEAR 3 NRR CALCULATION
+Year 2 Ending ARR,$245424,Baseline
+Year 3 ARR from Y2 Cohort Only:
+  Individual (43 → 41 after churn),41,$228,$9348
+  Team (42 → 40 after churn),40,$1740,$69600
+  Enterprise (7 → 7 after churn),7,$14700,$102900
+  Legacy (142 → 135 after churn),135,$420,$56700
+Total Y2 Cohort in Y3,223,—,$238548
+NRR,97.2%,$238548 / $245424
+
+COMPARATIVE SUMMARY
+Metric,Year 1,Year 2,Year 3
+Total Customers,214,234,267
+Total ARR,$89880,$245424,$370188
+YoY Growth Rate,-7.0%,173.0%,50.8%
+Net Revenue Retention,93.0%,194.1%,97.2%
+Annual Churn Rate,7%,5%,5%
+
+CUSTOMER SEGMENTATION (Year 3)
+Tier,Customers,% of Total,ARR,% of ARR,ARPU
+Individual,56,21.0%,$12768,3.4%,$228
+Team,63,23.6%,$109620,29.6%,$1740
+Enterprise,13,4.9%,$191100,51.6%,$14700
+Legacy,135,50.6%,$56700,15.3%,$420
+TOTAL,267,100.0%,$370188,100.0%,—
+
+REVENUE CONCENTRATION ANALYSIS
+Top Tier (Enterprise),51.6%,% of total ARR
+Top Tier Customers,4.9%,% of total customers
+Concentration Ratio,10.5x,ARR % / Customer %
+Risk Level,MODERATE-HIGH,>50% in single tier
+Industry Benchmark,<40%,Recommended max
+
+KEY METRICS SUMMARY
+Metric,Value,Industry Benchmark,Status
+3-Year ARR Growth,283%,100-200%,Above target
+3-Year Customer Growth,24.8%,20-40%,On target
+Ending Churn Rate,5%,5-10%,Best-in-class
+Year 2 NRR,194.1%,>120%,Exceptional
+Year 3 NRR,97.2%,90-110%,Healthy
+Enterprise Concentration,51.6%,<40%,Needs monitoring
+Average ARPU (Y3),$1386,Varies by market,Strong
