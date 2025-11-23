@@ -1,0 +1,95 @@
+Month,Event,Professional_Tier_Customers,Business_Tier_Customers,Premium_Tier_Customers,Individual_25,Professional_49,Team_75,Business_125,Enterprise_150,Premium_300,Dedicated_500,Grandfathered_35,Total_Customers,Monthly_Recurring_Revenue,Cumulative_Revenue_Growth_Pct,ARPU,Notes
+0,Baseline,0,0,0,0,0,0,0,0,0,0,230,230,8050.00,0.00,35.00,Current state: All customers at $35/month
+1,Grandfather Announcement,0,0,0,0,0,0,0,0,0,0,230,230,8050.00,0.00,35.00,Email sent: Your price protected for 6 months
+2,Professional A/B Test Start,28,0,0,0,28,0,0,0,0,0,204,232,8516.00,5.79,36.71,First Professional tier customers from new signups
+3,Professional Rollout Complete,40,0,0,10,40,20,0,5,0,0,153,228,9200.00,14.29,40.35,Professional tier validates; some voluntary upgrades
+4,Business A/B Test Start,45,10,0,12,45,22,10,5,0,0,131,225,10100.00,25.47,44.89,Business tier testing begins; more migrations
+5,Business Rollout Complete,50,18,0,15,50,25,18,7,0,0,107,222,11200.00,39.13,50.45,Business tier successful; enterprise upgrades
+6,Migration Complete (Mandatory Starts),28,10,0,35,28,28,10,7,0,0,104,212,12902.00,60.27,60.86,Mandatory migration completes; 8% churn
+7,Premium Test Start,30,12,2,36,30,29,12,7,2,0,98,214,13100.00,62.73,61.21,Premium tier testing with select accounts
+8,Continued Growth,32,13,3,37,32,30,13,7,3,0,94,216,13400.00,66.46,62.04,Organic growth + tier optimizations
+9,New Signup Growth,34,14,3,38,34,31,14,7,3,0,92,217,13700.00,70.19,63.13,New customers choosing optimal tiers
+10,Premium Rollout Complete,36,15,4,39,36,32,15,7,4,0,85,218,14200.00,76.40,65.14,Premium tier fully launched
+11,Optimization Phase,38,16,5,40,38,33,16,7,5,0,80,219,14600.00,81.37,66.67,Feature improvements drive upgrades
+12,Full 7-Tier Steady State,40,17,6,42,40,34,17,7,6,0,74,220,15100.00,87.58,68.64,All tiers active and optimized; Year 1 complete
+
+Year_2_Projection,Steady State Growth,50,25,10,45,50,40,25,10,10,5,65,240,17300.00,114.91,72.08,Year 2: Continued new customer acquisition + tier upgrades
+
+Tier_Price_Reference,,,,,,25,49,75,125,150,300,500,35,,,,Price per tier for calculations
+Expected_Adoption_Rate_New_Customers,,,,,,18%,21%,17%,11%,4%,4%,1%,24%,,,,Distribution of new customer signups across tiers
+Churn_Risk_By_Tier,,,,,,8%,5%,4%,3%,2%,2%,1%,10%,,,,Annual churn probability per tier
+Upgrade_Velocity_Monthly,,,,,,2%,3%,2%,1%,0.5%,0.3%,0.1%,0%,,,,Monthly probability of upgrading to next tier
+
+Revenue_Calculations,,,,,,,,,,,,,,,
+Individual_25_MRR,Month_12,42,customers,×,25,per_month,=,1050.00,,,,,,
+Professional_49_MRR,Month_12,40,customers,×,49,per_month,=,1960.00,,,,,,
+Team_75_MRR,Month_12,34,customers,×,75,per_month,=,2550.00,,,,,,
+Business_125_MRR,Month_12,17,customers,×,125,per_month,=,2125.00,,,,,,
+Enterprise_150_MRR,Month_12,7,customers,×,150,per_month,=,1050.00,,,,,,
+Premium_300_MRR,Month_12,6,customers,×,300,per_month,=,1800.00,,,,,,
+Dedicated_500_MRR,Month_12,0,customers,×,500,per_month,=,0.00,,,,,,
+Grandfathered_35_MRR,Month_12,74,customers,×,35,per_month,=,2590.00,,,,,,
+Total_MRR,Month_12,220,customers,,,,=,15100.00,,,,,,
+
+Confidence_Intervals,,,,,,,,,,,,,95%_CI_Bounds,,,
+MRR_Lower_Bound_5th_Percentile,,,,,,,,,,,,11850.00,,,,Conservative estimate
+MRR_Median_50th_Percentile,,,,,,,,,,,,12902.00,,,,Most likely outcome
+MRR_Upper_Bound_95th_Percentile,,,,,,,,,,,,14100.00,,,,Optimistic estimate
+
+Cumulative_Annual_Revenue,,,,,,,,,,,,,,,
+Year_1_Baseline_ARR,230,customers,×,35,×,12,months,=,96600.00,,,,Total if no changes
+Year_1_Projected_ARR_Month_12,220,customers,×,68.64,ARPU,×,12,=,181209.60,,,,New pricing structure
+Year_1_Additional_ARR,,,,,,,,84609.60,,,,+87.6% increase,
+Year_2_Projected_ARR,240,customers,×,72.08,ARPU,×,12,=,207590.40,,,,Continued growth
+
+LTV_Calculations,,,,,,,,,,,,,,,
+Average_Customer_Lifetime,3.5,years,,,,,,,,,,,Assumed based on churn rates
+Individual_LTV,25,×,12,×,3.5,÷,(1+0.08),=,972.22,,,,,8% annual churn
+Professional_LTV,49,×,12,×,3.5,÷,(1+0.05),=,1960.00,,,,,5% annual churn
+Team_LTV,75,×,12,×,3.5,÷,(1+0.04),=,3076.92,,,,,4% annual churn
+Business_LTV,125,×,12,×,3.5,÷,(1+0.03),=,5145.63,,,,,3% annual churn
+Enterprise_LTV,150,×,12,×,3.5,÷,(1+0.02),=,6176.47,,,,,2% annual churn
+Premium_LTV,300,×,12,×,3.5,÷,(1+0.02),=,12352.94,,,,,2% annual churn
+Dedicated_LTV,500,×,12,×,3.5,÷,(1+0.01),=,20792.08,,,,,1% annual churn
+
+CAC_Analysis,,,,,,,,,,,,,,,Assumed customer acquisition cost
+CAC_Per_Customer,250.00,,,,,,,,,,,,,Blended average
+LTV_CAC_Ratio_Individual,3.89,,,,,,,,,,,,,Acceptable (>3)
+LTV_CAC_Ratio_Professional,7.84,,,,,,,,,,,,,Good (>5)
+LTV_CAC_Ratio_Team,12.31,,,,,,,,,,,,,Excellent (>10)
+LTV_CAC_Ratio_Business,20.58,,,,,,,,,,,,,Excellent
+LTV_CAC_Ratio_Enterprise,24.71,,,,,,,,,,,,,Excellent
+LTV_CAC_Ratio_Premium,49.41,,,,,,,,,,,,,Outstanding
+LTV_CAC_Ratio_Dedicated,83.17,,,,,,,,,,,,,Outstanding
+
+Payback_Period_Months,,,,,,,,,,,,,,,
+Individual_Payback,10.0,months,,,,,,,,,,,,CAC ÷ MRR
+Professional_Payback,5.1,months,,,,,,,,,,,,
+Team_Payback,3.3,months,,,,,,,,,,,,
+Business_Payback,2.0,months,,,,,,,,,,,,
+Enterprise_Payback,1.7,months,,,,,,,,,,,,
+Premium_Payback,0.8,months,,,,,,,,,,,,
+Dedicated_Payback,0.5,months,,,,,,,,,,,,
+
+Migration_Financial_Impact,,,,,,,,,,,,,,,
+Voluntary_Migration_Revenue_Gain,70,customers,upgraded,avg_increase,25.00,per_month,=,1750.00,monthly,,,,
+Mandatory_Migration_Revenue_Gain,78,customers,upgraded,avg_increase,28.00,per_month,=,2184.00,monthly,,,,
+Downgrade_Revenue_Loss,35,customers,downgraded,avg_decrease,-10.00,per_month,=,-350.00,monthly,,,,
+Churn_Revenue_Loss,18,customers,churned,avg_price,-35.00,per_month,=,-630.00,monthly,,,,
+Net_Migration_Impact,,,,,,,,2954.00,monthly,+35448.00,annual,
+
+Risk_Adjusted_Scenarios,,,,,,,,,,,,,,,
+Pessimistic_Scenario_15pct_Worse,,,,,,,,,,,,,,,
+Pessimistic_MRR,12902.00,×,0.85,,,,,10966.70,,,,Still +36% vs baseline,
+Pessimistic_Churn,18,×,1.15,,,,,20.7,customers,,,10% churn rate,
+Pessimistic_ARR,10966.70,×,12,,,,,131600.40,,,,+36% vs baseline,
+
+Base_Case_Scenario,,,,,,,,,,,,,,,
+Base_MRR,12902.00,,,,,,,12902.00,,,,+60% vs baseline,
+Base_Churn,18,,,,,,,18.0,customers,,,8% churn rate,
+Base_ARR,12902.00,×,12,,,,,154824.00,,,,+60% vs baseline,
+
+Optimistic_Scenario_15pct_Better,,,,,,,,,,,,,,,
+Optimistic_MRR,12902.00,×,1.15,,,,,14837.30,,,,+84% vs baseline,
+Optimistic_Churn,18,×,0.85,,,,,15.3,customers,,,7% churn rate,
+Optimistic_ARR,14837.30,×,12,,,,,178047.60,,,,+84% vs baseline,

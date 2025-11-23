@@ -1,0 +1,6 @@
+scenario,tier_distribution
+current_35,{35: 228.2042}
+planned_4tier,{25: 226.2812}
+optimized_6tier,{25: 226.2881}
+optimized_7tier,{25: 226.2858}
+aggressive_8tier,{19: 226.5279}

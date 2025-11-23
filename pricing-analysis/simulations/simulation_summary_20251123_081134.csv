@@ -1,0 +1,6 @@
+scenario,mrr_mean,mrr_std,mrr_min,mrr_max,mrr_<lambda_0>,mrr_<lambda_1>,retained_customers_mean,retained_customers_std,retention_rate_mean,retention_rate_std,arpu_mean,arpu_std,revenue_change_pct_mean,revenue_change_pct_std,revenue_change_pct_min,revenue_change_pct_max
+aggressive_8tier,4304.03,29.82,4161,4351,4256.0,4351.0,226.53,1.57,0.98,0.01,19.0,0.0,-46.53,0.37,-48.31,-45.95
+current_35,7987.15,31.32,7805,8015,7945.0,8015.0,228.2,0.89,0.99,0.0,35.0,0.0,-0.78,0.39,-3.04,-0.43
+optimized_6tier,5657.2,41.07,5425,5725,5575.0,5725.0,226.29,1.64,0.98,0.01,25.0,0.0,-29.72,0.51,-32.61,-28.88
+optimized_7tier,5657.14,40.9,5450,5725,5575.0,5725.0,226.29,1.64,0.98,0.01,25.0,0.0,-29.72,0.51,-32.3,-28.88
+planned_4tier,5657.03,40.73,5425,5725,5575.0,5725.0,226.28,1.63,0.98,0.01,25.0,0.0,-29.73,0.51,-32.61,-28.88
