@@ -1,0 +1,153 @@
+{
+  "service_name": "Snappass",
+  "official_url": "Not publicly hosted (self-hosted only)",
+  "github_url": "https://github.com/pinterest/snappass",
+  "last_updated": "2025",
+  "data_collected": "2025-11-23",
+  "business_model": {
+    "type": "Free Open Source Software",
+    "company_type": "Pinterest open source project",
+    "pricing_tiers": [
+      {
+        "name": "Free (Self-Hosted Only)",
+        "price": "$0",
+        "features": [
+          "All features",
+          "Self-hosted deployment"
+        ]
+      }
+    ],
+    "revenue_model": "No revenue model - internal Pinterest tool made public",
+    "active_maintenance": true,
+    "last_commit_date": "2025",
+    "development_model": "Pinterest-sponsored open source"
+  },
+  "features": {
+    "core": {
+      "secret_types": ["passwords", "text"],
+      "max_secret_size": "Configurable",
+      "file_support": false,
+      "ttl_options": "Time-based expiration",
+      "burn_after_read": "View once (implicit)",
+      "view_limits": "Single view",
+      "link_formats": "One-time URLs",
+      "tagline": "It's like SnapChat... for passwords"
+    },
+    "security": {
+      "encryption_method": "Not specified in search",
+      "encryption_location": "Not specified",
+      "zero_knowledge": false,
+      "password_protection": "Not mentioned",
+      "https_only": "Recommended",
+      "data_at_rest_encryption": "Stored in Redis temporarily",
+      "auto_deletion": "After viewing or expiration",
+      "redis_storage": "Temporary storage only"
+    },
+    "advanced": {
+      "api_available": true,
+      "api_types": ["Simple API for creating links", "REST-y API for programmatic interactions"],
+      "api_use_case": "Embedding in scripts or CI/CD pipelines",
+      "cli_tools": "Not mentioned",
+      "browser_extensions": "Not mentioned",
+      "mobile_apps": "Not mentioned",
+      "self_hosting": true,
+      "docker_support": true,
+      "docker_compose": "Available",
+      "kubernetes_support": "Helm charts available",
+      "white_labeling": "Full customization when self-hosted",
+      "audit_logs": "Not mentioned",
+      "admin_controls": "Full control when self-hosted",
+      "sso_saml": "Not mentioned",
+      "compliance": "User-controlled"
+    }
+  },
+  "user_experience": {
+    "interface_quality": "Simple, minimalist",
+    "documentation_quality": "GitHub README",
+    "onboarding": "Very simple - paste and share",
+    "multi_language": "Not mentioned",
+    "mobile_responsive": "Basic",
+    "accessibility": "Not mentioned"
+  },
+  "technology": {
+    "stack": {
+      "language": "Python",
+      "framework": "Flask",
+      "frontend": "Basic HTML/JS",
+      "web_server": "Flask development server / production WSGI",
+      "database": "Redis (temporary storage)",
+      "redis_required": true
+    },
+    "deployment": [
+      "Docker",
+      "Docker Compose",
+      "Kubernetes (Helm charts)",
+      "Traditional Python deployment"
+    ],
+    "configuration": "Environment variables (SECRET_KEY, REDIS_HOST, etc.)",
+    "open_source_license": "MIT License"
+  },
+  "market": {
+    "target_audience": ["Developers", "Internal teams", "Self-hosters"],
+    "positioning": "Simple, developer-friendly password sharing",
+    "use_cases": [
+      "Internal password sharing",
+      "Developer tool integration",
+      "CI/CD pipelines",
+      "Quick password transmission"
+    ],
+    "geographic_focus": "Global (user-deployed)",
+    "data_storage_region": "User-controlled"
+  },
+  "market_presence": {
+    "github_stars": "Not captured (but moderate popularity)",
+    "website_traffic": "Not applicable (self-hosted only)",
+    "community": "Pinterest-backed, community forks including .NET port",
+    "social_media": "Not captured",
+    "press_mentions": "Mentioned in password sharing tool lists"
+  },
+  "trust_mechanisms": {
+    "proof_of_security": [
+      "Open source (auditable)",
+      "Pinterest backing",
+      "Simple, transparent codebase",
+      "Redis temporary storage"
+    ],
+    "concerns": [
+      "Unclear encryption details",
+      "No zero-knowledge architecture mentioned",
+      "Requires self-hosting",
+      "Limited documentation on security model"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/pinterest/snappass",
+      "accessed": "2025-11-23",
+      "type": "GitHub repository"
+    }
+  ],
+  "competitive_notes": {
+    "strengths": [
+      "Pinterest backing (credibility)",
+      "Simple, focused tool",
+      "Flask-based (easy to understand/modify)",
+      "API support for automation",
+      "Docker and Kubernetes ready",
+      "Community ports (e.g., .NET)"
+    ],
+    "weaknesses": [
+      "No public hosted service",
+      "Limited documentation",
+      "No file support",
+      "Basic feature set",
+      "Security architecture not well documented",
+      "No enterprise features"
+    ],
+    "differentiators": [
+      "Pinterest-sponsored project",
+      "Extremely simple design",
+      "Python/Flask stack"
+    ]
+  }
+}

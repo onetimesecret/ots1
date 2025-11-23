@@ -1,0 +1,220 @@
+{
+  "service_name": "Yopass",
+  "official_url": "https://yopass.se",
+  "github_url": "https://github.com/jhaals/yopass",
+  "last_updated": "2025",
+  "data_collected": "2025-11-23",
+  "business_model": {
+    "type": "Free Open Source + Optional Managed Hosting",
+    "company_type": "OSS project with third-party managed hosting options",
+    "pricing_tiers": [
+      {
+        "name": "Free Public Service (yopass.se)",
+        "price": "$0",
+        "features": [
+          "Demo/public service",
+          "All core features",
+          "Not recommended for sensitive production use"
+        ]
+      },
+      {
+        "name": "Self-Hosted",
+        "price": "$0 (infrastructure costs only)",
+        "features": [
+          "All features",
+          "Complete control",
+          "Recommended for security"
+        ]
+      },
+      {
+        "name": "Managed Hosting (Third-party)",
+        "price": "Starting from $0.99/mo (LibreSelfHosted)",
+        "features": [
+          "Managed infrastructure",
+          "Updates and maintenance",
+          "Security patches"
+        ]
+      }
+    ],
+    "revenue_model": "No direct revenue - open source project",
+    "active_maintenance": true,
+    "last_commit_date": "2025",
+    "development_model": "Open source community project"
+  },
+  "features": {
+    "core": {
+      "secret_types": ["text", "passwords", "files"],
+      "max_secret_size": "Configurable by deployment",
+      "file_support": true,
+      "file_upload_version": "Added in version 8.0.0",
+      "ttl_options": "1 hour to 1 week (configurable)",
+      "burn_after_read": "Configurable one-time viewing",
+      "view_limits": "One-time access (configurable)",
+      "link_formats": "One-time URL with expiry",
+      "custom_aliases": "Not mentioned"
+    },
+    "security": {
+      "encryption_method": "OpenPGP with strong cryptographic standards",
+      "encryption_location": "Client-side (browser)",
+      "zero_knowledge": true,
+      "password_protection": "Not mentioned",
+      "https_only": "TLS support via reverse proxy or built-in",
+      "data_at_rest_encryption": "Stored encrypted, server cannot decrypt",
+      "auto_deletion": "Time-based expiration and one-time access",
+      "key_handling": "Decryption key never sent to server, only visible during encryption",
+      "random_generation": "Cryptographically secure (window.crypto.getRandomValues())",
+      "no_user_mapping": "No mapping between UUID and user who submitted",
+      "replay_prevention": "One-time access prevents replay attacks"
+    },
+    "advanced": {
+      "api_available": "Not mentioned",
+      "cli_tools": true,
+      "cli_repository": "github.com/jhaals/yopass-cli",
+      "cli_use_case": "Share program output via secrets",
+      "browser_extensions": "Not mentioned",
+      "mobile_apps": "Not mentioned",
+      "self_hosting": true,
+      "docker_support": true,
+      "docker_compose": "Available with nginx proxy and Let's Encrypt",
+      "kubernetes_support": true,
+      "kubernetes_manifests": "deploy/yopass-k8.yaml provided",
+      "white_labeling": "Full customization when self-hosted",
+      "audit_logs": "Not mentioned",
+      "admin_controls": "Full control when self-hosted",
+      "sso_saml": "Not mentioned",
+      "compliance": "User-controlled when self-hosted",
+      "storage_backends": ["Memcached", "Redis"],
+      "internationalization": "Multi-language support via react-i18next"
+    }
+  },
+  "user_experience": {
+    "interface_quality": "Modern UI with Tailwind CSS and DaisyUI (rewritten in v8)",
+    "documentation_quality": "GitHub README and documentation",
+    "onboarding": "Simple - no account required",
+    "multi_language": "Yes, built-in i18n support",
+    "mobile_responsive": "Modern responsive design",
+    "accessibility": "Not specifically mentioned"
+  },
+  "technology": {
+    "stack": {
+      "language": "Go",
+      "framework": "Custom Go server",
+      "frontend": "React with Tailwind CSS and DaisyUI (v8 rewrite)",
+      "frontend_i18n": "react-i18next",
+      "web_server": "Built-in Go server or reverse proxy",
+      "database": "Memcached or Redis (ephemeral storage)",
+      "encryption": "OpenPGP (client-side)"
+    },
+    "deployment": [
+      "Docker",
+      "Docker Compose with nginx and Let's Encrypt",
+      "Kubernetes",
+      "Binary deployment",
+      "Reverse proxy configurations"
+    ],
+    "configuration": {
+      "database_flag": "--database (memcached or redis)",
+      "memcached_default": "localhost:11211",
+      "port": "Configurable",
+      "tls_support": "Certificate paths configurable"
+    },
+    "open_source_license": "Open Source (specific license not mentioned)"
+  },
+  "market": {
+    "target_audience": ["Developers", "DevOps teams", "Security-conscious organizations", "IT departments"],
+    "positioning": "Developer-focused secret sharing to eliminate passwords in ticket systems and Slack",
+    "use_cases": [
+      "Sharing passwords outside of ticket systems",
+      "Eliminating credentials in Slack/email",
+      "Secure DevOps secret transmission",
+      "File sharing with expiration",
+      "CLI-based secret sharing for automation"
+    ],
+    "geographic_focus": "Global (user-deployed)",
+    "data_storage_region": "User-controlled"
+  },
+  "market_presence": {
+    "github_stars": "High (exact number not captured)",
+    "website_traffic": "Not applicable (primarily self-hosted)",
+    "community": "Active GitHub development, recent major version (8.0.0)",
+    "social_media": "Not captured",
+    "press_mentions": "Frequently mentioned in secret-sharing comparisons"
+  },
+  "trust_mechanisms": {
+    "proof_of_security": [
+      "Open source code (fully auditable)",
+      "Zero-knowledge architecture",
+      "Client-side encryption with OpenPGP",
+      "Encryption key never sent to server",
+      "Cryptographically secure random generation",
+      "No user tracking (no UUID-to-user mapping)",
+      "Minimalist 'dumb' design philosophy"
+    ],
+    "security_guarantees": [
+      "Server never has access to unencrypted secrets",
+      "No plain text storage",
+      "One-time access prevents replay attacks",
+      "Configurable expiration"
+    ],
+    "concerns": [
+      "Public yopass.se not recommended for production",
+      "Requires self-hosting for true security control",
+      "TLS/HTTPS must be properly configured"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/jhaals/yopass",
+      "accessed": "2025-11-23",
+      "type": "GitHub repository"
+    },
+    {
+      "url": "https://yopass.se",
+      "accessed": "2025-11-23",
+      "type": "Official website/demo"
+    },
+    {
+      "url": "https://github.com/jhaals/yopass-cli",
+      "accessed": "2025-11-23",
+      "type": "CLI repository"
+    },
+    {
+      "url": "https://elest.io/open-source/yopass",
+      "accessed": "2025-11-23",
+      "type": "Managed hosting provider"
+    },
+    {
+      "url": "https://libreselfhosted.com/project/yopass/",
+      "accessed": "2025-11-23",
+      "type": "Third-party hosting information"
+    }
+  ],
+  "competitive_notes": {
+    "strengths": [
+      "Zero-knowledge client-side encryption",
+      "Modern tech stack (Go + React)",
+      "File upload support (recent addition)",
+      "CLI tool for automation",
+      "Multiple storage backends (Memcached, Redis)",
+      "Kubernetes-ready with manifests",
+      "Modern UI (Tailwind + DaisyUI)",
+      "Multi-language support",
+      "Active development (major v8 rewrite)",
+      "Simple, focused design philosophy"
+    ],
+    "weaknesses": [
+      "Public service not recommended for production",
+      "No built-in API mentioned",
+      "Requires self-hosting for security",
+      "Limited managed hosting options",
+      "No enterprise features or support"
+    ],
+    "differentiators": [
+      "Purpose-built to eliminate passwords in ticket systems/Slack",
+      "Go-based backend (performance)",
+      "Recent modern frontend rewrite",
+      "CLI-first approach for DevOps",
+      "Explicit focus on simplicity"
+    ]
+  }
+}
