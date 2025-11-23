@@ -1,0 +1,636 @@
+# ================================================================
+# CADDY CONFIGURATION FOR PRICE OPTIMIZATION API
+# Production-ready reverse proxy and API gateway
+# ================================================================
+
+# Global options
+{
+    # Enable admin API
+    admin localhost:2019
+
+    # Email for Let's Encrypt
+    email admin@onetimesecret.com
+
+    # Enable access logging
+    log {
+        output file /var/log/caddy/access.log {
+            roll_size 100mb
+            roll_keep 10
+        }
+        format json
+    }
+
+    # Security headers
+    servers {
+        protocols h1 h2 h3
+        timeouts {
+            read_body 10s
+            read_header 5s
+            write 10s
+            idle 120s
+        }
+    }
+}
+
+# ================================================================
+# MAIN PRICE OPTIMIZATION API
+# ================================================================
+
+pricing-api.onetimesecret.com {
+    # TLS configuration
+    tls {
+        protocols tls1.2 tls1.3
+        ciphers TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+    }
+
+    # Enable compression
+    encode gzip zstd
+
+    # Security headers
+    header {
+        # HSTS
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+        # Prevent clickjacking
+        X-Frame-Options "DENY"
+
+        # XSS protection
+        X-Content-Type-Options "nosniff"
+        X-XSS-Protection "1; mode=block"
+
+        # CSP
+        Content-Security-Policy "default-src 'self'; script-src 'self'; object-src 'none';"
+
+        # Remove server header
+        -Server
+        -X-Powered-By
+    }
+
+    # Rate limiting
+    rate_limit {
+        zone pricing_api {
+            key {remote_host}
+            events 100
+            window 1m
+        }
+    }
+
+    # Request logging
+    log {
+        output file /var/log/caddy/pricing-api.log {
+            roll_size 100mb
+            roll_keep 30
+        }
+        format json {
+            time_format "iso8601"
+        }
+    }
+
+    # ================================================================
+    # API ROUTES
+    # ================================================================
+
+    # Health check endpoint
+    handle /health {
+        respond "OK" 200
+    }
+
+    # Metrics endpoint (Prometheus format)
+    handle /metrics {
+        # Require authentication
+        basicauth {
+            monitoring $2a$14$encrypted_password_here
+        }
+        reverse_proxy localhost:9090
+    }
+
+    # ================================================================
+    # PRICE SENSITIVITY SURVEY
+    # ================================================================
+
+    # Submit price sensitivity survey response
+    handle /api/v1/price-sensitivity/submit {
+        @post {
+            method POST
+        }
+
+        # Validate request
+        header @post Content-Type "application/json"
+
+        # Rate limit stricter for submissions
+        rate_limit @post {
+            zone survey_submit {
+                key {remote_host}
+                events 10
+                window 1h
+            }
+        }
+
+        reverse_proxy @post localhost:8001 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Forwarded-For {remote_host}
+
+            # Timeout
+            transport http {
+                dial_timeout 5s
+                response_header_timeout 30s
+            }
+
+            # Health check backend
+            health_uri /health
+            health_interval 30s
+            health_timeout 5s
+        }
+    }
+
+    # Get survey configuration
+    handle /api/v1/price-sensitivity/config/* {
+        @get {
+            method GET
+        }
+
+        reverse_proxy @get localhost:8001
+    }
+
+    # ================================================================
+    # VAN WESTENDORP ANALYSIS
+    # ================================================================
+
+    # Run Van Westendorp analysis
+    handle /api/v1/analysis/van-westendorp {
+        @post {
+            method POST
+        }
+
+        # Require API key
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        header @post Content-Type "application/json"
+
+        reverse_proxy @post @authorized localhost:8002 {
+            header_up X-Real-IP {remote_host}
+
+            # Longer timeout for analysis
+            transport http {
+                dial_timeout 10s
+                response_header_timeout 120s
+            }
+        }
+
+        # Reject unauthorized
+        respond @post 401 {
+            body "Unauthorized: Valid API key required"
+        }
+    }
+
+    # Get analysis results
+    handle /api/v1/analysis/results/* {
+        @get {
+            method GET
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8002
+
+        respond @get 401
+    }
+
+    # Price elasticity calculation
+    handle /api/v1/analysis/elasticity {
+        @post {
+            method POST
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @post @authorized localhost:8002
+
+        respond @post 401
+    }
+
+    # ================================================================
+    # REVENUE OPTIMIZATION
+    # ================================================================
+
+    # Run optimization
+    handle /api/v1/optimization/revenue {
+        @post {
+            method POST
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        # Extra rate limiting for computationally intensive operations
+        rate_limit @post {
+            zone optimization {
+                key {header.Authorization}
+                events 10
+                window 1m
+            }
+        }
+
+        reverse_proxy @post @authorized localhost:8003 {
+            # Extended timeout for optimization
+            transport http {
+                dial_timeout 10s
+                response_header_timeout 300s
+            }
+        }
+
+        respond @post 401
+    }
+
+    # Pricing cliff detection
+    handle /api/v1/optimization/cliffs {
+        @post {
+            method POST
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @post @authorized localhost:8003
+
+        respond @post 401
+    }
+
+    # ================================================================
+    # A/B TESTING
+    # ================================================================
+
+    # Create experiment
+    handle /api/v1/ab-test/experiments {
+        @post {
+            method POST
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @post @authorized localhost:8004
+
+        respond @post 401
+    }
+
+    # List experiments
+    handle /api/v1/ab-test/experiments {
+        @get {
+            method GET
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8004
+
+        respond @get 401
+    }
+
+    # Get experiment details
+    handle /api/v1/ab-test/experiments/* {
+        @get {
+            method GET
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8004
+
+        respond @get 401
+    }
+
+    # Assign user to experiment (public endpoint with rate limiting)
+    handle /api/v1/ab-test/assign {
+        @post {
+            method POST
+        }
+
+        rate_limit @post {
+            zone ab_assign {
+                key {remote_host}
+                events 100
+                window 1m
+            }
+        }
+
+        reverse_proxy @post localhost:8004 {
+            header_up X-Real-IP {remote_host}
+            header_up X-Session-ID {header.X-Session-ID}
+        }
+    }
+
+    # Record test result (public endpoint)
+    handle /api/v1/ab-test/record {
+        @post {
+            method POST
+        }
+
+        rate_limit @post {
+            zone ab_record {
+                key {remote_host}
+                events 50
+                window 1m
+            }
+        }
+
+        reverse_proxy @post localhost:8004
+    }
+
+    # Get experiment results
+    handle /api/v1/ab-test/results/* {
+        @get {
+            method GET
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8004
+
+        respond @get 401
+    }
+
+    # ================================================================
+    # MONITORING & ALERTS
+    # ================================================================
+
+    # Get pricing alerts
+    handle /api/v1/monitoring/alerts {
+        @get {
+            method GET
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8005
+
+        respond @get 401
+    }
+
+    # Acknowledge alert
+    handle /api/v1/monitoring/alerts/*/acknowledge {
+        @post {
+            method POST
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @post @authorized localhost:8005
+
+        respond @post 401
+    }
+
+    # Get revenue metrics
+    handle /api/v1/monitoring/revenue {
+        @get {
+            method GET
+            query tier=*
+            query segment=*
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8005
+
+        respond @get 401
+    }
+
+    # Price change audit log
+    handle /api/v1/monitoring/audit/price-changes {
+        @get {
+            method GET
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8005
+
+        respond @get 401
+    }
+
+    # ================================================================
+    # REPORTS & DASHBOARDS
+    # ================================================================
+
+    # Generate comprehensive report
+    handle /api/v1/reports/comprehensive {
+        @post {
+            method POST
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        rate_limit @post {
+            zone reports {
+                key {header.Authorization}
+                events 5
+                window 1h
+            }
+        }
+
+        reverse_proxy @post @authorized localhost:8006 {
+            # Very long timeout for report generation
+            transport http {
+                dial_timeout 10s
+                response_header_timeout 600s
+            }
+        }
+
+        respond @post 401
+    }
+
+    # Get report status
+    handle /api/v1/reports/status/* {
+        @get {
+            method GET
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8006
+
+        respond @get 401
+    }
+
+    # Download report
+    handle /api/v1/reports/download/* {
+        @get {
+            method GET
+        }
+
+        @authorized {
+            header Authorization "Bearer *"
+        }
+
+        reverse_proxy @get @authorized localhost:8006 {
+            # Set appropriate headers for file download
+            header_down Content-Disposition "attachment"
+        }
+
+        respond @get 401
+    }
+
+    # ================================================================
+    # ADMIN OPERATIONS
+    # ================================================================
+
+    # Approve price change
+    handle /api/v1/admin/price-changes/approve {
+        @post {
+            method POST
+        }
+
+        @admin {
+            header Authorization "Bearer *"
+            header X-Admin-Role "admin"
+        }
+
+        reverse_proxy @post @admin localhost:8007
+
+        respond @post 403 {
+            body "Forbidden: Admin access required"
+        }
+    }
+
+    # Rollback price change
+    handle /api/v1/admin/price-changes/rollback {
+        @post {
+            method POST
+        }
+
+        @admin {
+            header Authorization "Bearer *"
+            header X-Admin-Role "admin"
+        }
+
+        reverse_proxy @post @admin localhost:8007
+
+        respond @post 403
+    }
+
+    # ================================================================
+    # ERROR HANDLING
+    # ================================================================
+
+    # Handle 404s
+    handle_errors {
+        @404 {
+            expression {http.error.status_code} == 404
+        }
+
+        respond @404 "Not Found" 404 {
+            close
+        }
+
+        # Generic error response
+        respond "{http.error.status_code} {http.error.status_text}" {http.error.status_code} {
+            close
+        }
+    }
+
+    # Catch-all for undefined routes
+    handle {
+        respond "Not Found" 404
+    }
+}
+
+# ================================================================
+# INTERNAL MONITORING DASHBOARD
+# ================================================================
+
+pricing-dashboard.internal.onetimesecret.com {
+    # Only accessible from internal network
+    @internal {
+        remote_ip 10.0.0.0/8 172.16.0.0/12 192.168.0.0/16
+    }
+
+    # Authentication required
+    basicauth @internal {
+        admin $2a$14$encrypted_password_here
+        analyst $2a$14$encrypted_password_here
+    }
+
+    # Dashboard application
+    handle @internal {
+        root * /var/www/pricing-dashboard
+        file_server
+        try_files {path} /index.html
+    }
+
+    # API proxy for dashboard
+    handle @internal /api/* {
+        reverse_proxy localhost:8008
+    }
+
+    # Reject external access
+    respond 403 {
+        body "Access Denied: Internal network only"
+    }
+}
+
+# ================================================================
+# DEVELOPMENT/STAGING ENVIRONMENT
+# ================================================================
+
+pricing-api-staging.onetimesecret.com {
+    # Similar configuration but with relaxed rate limits
+    # and additional debugging endpoints
+
+    tls internal  # Use internal CA for staging
+
+    # Enable debug logging
+    log {
+        output file /var/log/caddy/staging-api.log
+        format json
+        level DEBUG
+    }
+
+    # More permissive rate limits for testing
+    rate_limit {
+        zone staging {
+            key {remote_host}
+            events 1000
+            window 1m
+        }
+    }
+
+    # Debug endpoint
+    handle /debug/* {
+        reverse_proxy localhost:8009
+    }
+
+    # Proxy to staging backends (ports 9001-9009)
+    handle /api/* {
+        reverse_proxy localhost:9001 localhost:9002 localhost:9003 localhost:9004 localhost:9005 {
+            lb_policy round_robin
+            health_uri /health
+        }
+    }
+}
