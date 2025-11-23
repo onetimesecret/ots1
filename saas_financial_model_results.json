@@ -1,0 +1,428 @@
+{
+  "baseline": {
+    "year1": {
+      "year": 1,
+      "starting_customers": 230,
+      "ending_customers": 215.2,
+      "starting_arr": 96600,
+      "ending_arr": 90382.95,
+      "total_revenue": 93460.14,
+      "nrr": 0.9356,
+      "churn_rate": 0.07,
+      "monthly_breakdown": {
+        "customers": [
+          230,
+          228.6,
+          227.2,
+          225.9,
+          224.5,
+          223.1,
+          221.8,
+          220.5,
+          219.1,
+          217.8,
+          216.5,
+          215.2
+        ],
+        "mrr": [
+          8050,
+          8001.46,
+          7953.22,
+          7905.27,
+          7857.61,
+          7810.23,
+          7763.14,
+          7716.33,
+          7669.81,
+          7623.56,
+          7577.6,
+          7531.91
+        ]
+      }
+    },
+    "year2": {
+      "year": 2,
+      "starting_customers": 215,
+      "ending_customers": 237,
+      "starting_segment": {
+        "individual": 54,
+        "team": 40,
+        "enterprise": 3,
+        "legacy": 140
+      },
+      "ending_segment": {
+        "individual": 54,
+        "team": 40,
+        "enterprise": 3,
+        "legacy": 140
+      },
+      "starting_arr": 165276,
+      "ending_arr": 184812,
+      "nrr": 1.1182,
+      "churn_rate": 0.05,
+      "growth_rate": 0.15
+    },
+    "year3": {
+      "year": 3,
+      "starting_customers": 259,
+      "ending_customers": 259,
+      "ending_segment": {
+        "individual": 76,
+        "team": 51,
+        "enterprise": 3,
+        "legacy": 129
+      },
+      "starting_arr": 184812,
+      "ending_arr": 204348,
+      "nrr": 1.1057,
+      "churn_rate": 0.05,
+      "growth_rate": 0.2,
+      "revenue_concentration": 0.4343,
+      "revenue_by_segment": {
+        "individual": 17328,
+        "team": 88740,
+        "enterprise": 44100,
+        "legacy": 54180
+      }
+    },
+    "ltv_cac_year3": {
+      "arpa": 788.99,
+      "ltv": 15779.77,
+      "cac": 210,
+      "ltv_cac_ratio": 75.14,
+      "payback_months": 3.2
+    }
+  },
+  "alternatives": [
+    {
+      "year1": {
+        "year": 1,
+        "starting_customers": 230,
+        "ending_customers": 215.2,
+        "starting_arr": 96600,
+        "ending_arr": 90382.95,
+        "total_revenue": 93460.14,
+        "nrr": 0.9356,
+        "churn_rate": 0.07,
+        "monthly_breakdown": {
+          "customers": [
+            230,
+            228.6,
+            227.2,
+            225.9,
+            224.5,
+            223.1,
+            221.8,
+            220.5,
+            219.1,
+            217.8,
+            216.5,
+            215.2
+          ],
+          "mrr": [
+            8050,
+            8001.46,
+            7953.22,
+            7905.27,
+            7857.61,
+            7810.23,
+            7763.14,
+            7716.33,
+            7669.81,
+            7623.56,
+            7577.6,
+            7531.91
+          ]
+        }
+      },
+      "year2": {
+        "year": 2,
+        "starting_customers": 215,
+        "ending_customers": 237,
+        "starting_segment": {
+          "individual": 54,
+          "team": 40,
+          "enterprise": 3,
+          "legacy": 140
+        },
+        "ending_segment": {
+          "individual": 54,
+          "team": 40,
+          "enterprise": 3,
+          "legacy": 140
+        },
+        "starting_arr": 164640,
+        "ending_arr": 191040,
+        "nrr": 1.1603,
+        "churn_rate": 0.05,
+        "growth_rate": 0.15
+      },
+      "year3": {
+        "year": 3,
+        "starting_customers": 259,
+        "ending_customers": 259,
+        "ending_segment": {
+          "individual": 76,
+          "team": 51,
+          "enterprise": 3,
+          "legacy": 129
+        },
+        "starting_arr": 191040,
+        "ending_arr": 217440,
+        "nrr": 1.1382,
+        "churn_rate": 0.05,
+        "growth_rate": 0.2,
+        "revenue_concentration": 0.4925,
+        "revenue_by_segment": {
+          "starter": 27360,
+          "professional": 107100,
+          "enterprise": 28800,
+          "legacy": 54180
+        }
+      },
+      "ltv_cac_year3": {
+        "arpa": 839.54,
+        "ltv": 16790.73,
+        "cac": 210,
+        "ltv_cac_ratio": 79.96,
+        "payback_months": 3.0
+      },
+      "model_name": "Per-Seat Pricing",
+      "description": "Pure per-user model with volume-based pricing"
+    },
+    {
+      "year1": {
+        "year": 1,
+        "starting_customers": 230,
+        "ending_customers": 215.2,
+        "starting_arr": 96600,
+        "ending_arr": 90382.95,
+        "total_revenue": 93460.14,
+        "nrr": 0.9356,
+        "churn_rate": 0.07,
+        "monthly_breakdown": {
+          "customers": [
+            230,
+            228.6,
+            227.2,
+            225.9,
+            224.5,
+            223.1,
+            221.8,
+            220.5,
+            219.1,
+            217.8,
+            216.5,
+            215.2
+          ],
+          "mrr": [
+            8050,
+            8001.46,
+            7953.22,
+            7905.27,
+            7857.61,
+            7810.23,
+            7763.14,
+            7716.33,
+            7669.81,
+            7623.56,
+            7577.6,
+            7531.91
+          ]
+        }
+      },
+      "year2": {
+        "year": 2,
+        "starting_customers": 215,
+        "ending_customers": 237,
+        "starting_segment": {
+          "individual": 54,
+          "team": 40,
+          "enterprise": 3,
+          "legacy": 140
+        },
+        "ending_segment": {
+          "individual": 54,
+          "team": 40,
+          "enterprise": 3,
+          "legacy": 140
+        },
+        "starting_arr": 118236,
+        "ending_arr": 133284,
+        "nrr": 1.1273,
+        "churn_rate": 0.05,
+        "growth_rate": 0.15
+      },
+      "year3": {
+        "year": 3,
+        "starting_customers": 259,
+        "ending_customers": 259,
+        "ending_segment": {
+          "individual": 76,
+          "team": 51,
+          "enterprise": 3,
+          "legacy": 129
+        },
+        "starting_arr": 133284,
+        "ending_arr": 148332,
+        "nrr": 1.1129,
+        "churn_rate": 0.05,
+        "growth_rate": 0.2,
+        "revenue_concentration": 0.4085,
+        "revenue_by_segment": {
+          "solo": 22800,
+          "team": 60588,
+          "business": 10764,
+          "legacy": 54180
+        }
+      },
+      "ltv_cac_year3": {
+        "arpa": 572.71,
+        "ltv": 11454.21,
+        "cac": 210,
+        "ltv_cac_ratio": 54.54,
+        "payback_months": 4.4
+      },
+      "model_name": "Flat Team Pricing",
+      "description": "Fixed pricing per team size bracket"
+    },
+    {
+      "year1": {
+        "year": 1,
+        "starting_customers": 230,
+        "ending_customers": 215.2,
+        "starting_arr": 96600,
+        "ending_arr": 90382.95,
+        "total_revenue": 93460.14,
+        "nrr": 0.9356,
+        "churn_rate": 0.07,
+        "monthly_breakdown": {
+          "customers": [
+            230,
+            228.6,
+            227.2,
+            225.9,
+            224.5,
+            223.1,
+            221.8,
+            220.5,
+            219.1,
+            217.8,
+            216.5,
+            215.2
+          ],
+          "mrr": [
+            8050,
+            8001.46,
+            7953.22,
+            7905.27,
+            7857.61,
+            7810.23,
+            7763.14,
+            7716.33,
+            7669.81,
+            7623.56,
+            7577.6,
+            7531.91
+          ]
+        }
+      },
+      "year2": {
+        "year": 2,
+        "starting_customers": 215,
+        "ending_customers": 237,
+        "starting_segment": {
+          "individual": 54,
+          "team": 40,
+          "enterprise": 3,
+          "legacy": 140
+        },
+        "ending_segment": {
+          "individual": 54,
+          "team": 40,
+          "enterprise": 3,
+          "legacy": 140
+        },
+        "starting_arr": 188868,
+        "ending_arr": 209856,
+        "nrr": 1.1111,
+        "churn_rate": 0.05,
+        "growth_rate": 0.15
+      },
+      "year3": {
+        "year": 3,
+        "starting_customers": 259,
+        "ending_customers": 259,
+        "ending_segment": {
+          "individual": 76,
+          "team": 51,
+          "enterprise": 3,
+          "legacy": 129
+        },
+        "starting_arr": 209856,
+        "ending_arr": 230844,
+        "nrr": 1.1,
+        "churn_rate": 0.05,
+        "growth_rate": 0.2,
+        "revenue_concentration": 0.3977,
+        "revenue_by_segment": {
+          "basic": 20064,
+          "pro": 91800,
+          "enterprise": 64800,
+          "legacy": 54180
+        }
+      },
+      "ltv_cac_year3": {
+        "arpa": 891.29,
+        "ltv": 17825.79,
+        "cac": 210,
+        "ltv_cac_ratio": 84.88,
+        "payback_months": 2.8
+      },
+      "model_name": "Usage-Based Hybrid",
+      "description": "Base fee + consumption-based overage charges"
+    }
+  ],
+  "sensitivity": {
+    "churn": {
+      "base_5pct": {
+        "churn": 0.05,
+        "year3_arr": 204348,
+        "year3_customers": 259,
+        "nrr": 1.1057
+      },
+      "best_3pct": {
+        "churn": 0.03,
+        "year3_arr": 213588,
+        "year3_customers": 281,
+        "nrr": 1.1275
+      },
+      "worst_7pct": {
+        "churn": 0.07,
+        "year3_arr": 204348,
+        "year3_customers": 259,
+        "nrr": 1.1057
+      },
+      "summary": {
+        "arr_range": 9240,
+        "arr_range_pct": 4.52,
+        "most_sensitive_to": "churn_rate"
+      }
+    },
+    "price": {
+      "base_29": {
+        "team_price": 29,
+        "year3_arr": 204348
+      },
+      "low_26": {
+        "team_price": 26,
+        "year3_arr": 195168
+      },
+      "high_32": {
+        "team_price": 32,
+        "year3_arr": 213528
+      }
+    }
+  },
+  "generated_at": "2025-11-23"
+}

@@ -1,0 +1,605 @@
+{
+  "scenarios": [
+    {
+      "name": "5-Tier Bear Market",
+      "market_condition": "bear",
+      "year3_arr": 466980,
+      "year3_customers": 212,
+      "nrr": 1.0267810026385225,
+      "ltv_cac_ratio": 149.8459761262996,
+      "revenue_by_tier": {
+        "micro": 5760,
+        "individual": 18240,
+        "team": 99180,
+        "business": 226800,
+        "enterprise": 117000
+      },
+      "risk_score": 5.5,
+      "confidence_interval": [
+        350235.0,
+        583725.0
+      ]
+    },
+    {
+      "name": "5-Tier Base Market",
+      "market_condition": "base",
+      "year3_arr": 688404,
+      "year3_customers": 238,
+      "nrr": 1.1174373758229772,
+      "ltv_cac_ratio": 275.4717887154862,
+      "revenue_by_tier": {
+        "micro": 5040,
+        "individual": 18924,
+        "team": 123540,
+        "business": 283500,
+        "enterprise": 257400
+      },
+      "risk_score": 2.0,
+      "confidence_interval": [
+        585143.4,
+        791664.6
+      ]
+    },
+    {
+      "name": "5-Tier Bull Market",
+      "market_condition": "bull",
+      "year3_arr": 951036,
+      "year3_customers": 268,
+      "nrr": 1.2241925269157694,
+      "ltv_cac_ratio": 422.457356076759,
+      "revenue_by_tier": {
+        "micro": 4032,
+        "individual": 21204,
+        "team": 139200,
+        "business": 388800,
+        "enterprise": 397800
+      },
+      "risk_score": 1.5,
+      "confidence_interval": [
+        713277.0,
+        1188795.0
+      ]
+    }
+  ],
+  "sensitivity_analysis": {
+    "price": {
+      "scenarios": {
+        "-10.0%": {
+          "year3_arr": 619563.6,
+          "year3_customers": 238,
+          "nrr": 1.117437375822977,
+          "ltv_cac": 247.9246098439376
+        },
+        "+0.0%": {
+          "year3_arr": 688404.0,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+10.0%": {
+          "year3_arr": 757244.4,
+          "year3_customers": 238,
+          "nrr": 1.117437375822977,
+          "ltv_cac": 303.0189675870348
+        }
+      },
+      "sensitivity_index": 1.0000000000000002,
+      "most_sensitive": true
+    },
+    "churn": {
+      "scenarios": {
+        "-10.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+0.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+10.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        }
+      },
+      "sensitivity_index": 0.0,
+      "most_sensitive": false
+    },
+    "growth": {
+      "scenarios": {
+        "-10.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+0.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+10.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        }
+      },
+      "sensitivity_index": 0.0,
+      "most_sensitive": false
+    },
+    "cac": {
+      "scenarios": {
+        "-10.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+0.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+10.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        }
+      },
+      "sensitivity_index": 0.0,
+      "most_sensitive": false
+    },
+    "team_size": {
+      "scenarios": {
+        "-10.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+0.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        },
+        "+10.0%": {
+          "year3_arr": 688404,
+          "year3_customers": 238,
+          "nrr": 1.1174373758229772,
+          "ltv_cac": 275.4717887154862
+        }
+      },
+      "sensitivity_index": 0.0,
+      "most_sensitive": false
+    }
+  },
+  "risk_assessments": [
+    {
+      "scenario": "5-Tier Bear Market",
+      "overall_score": 67.0,
+      "mitigation_strategies": [
+        "Conduct competitive pricing audit every quarter",
+        "Implement value-based pricing experiments",
+        "Hire dedicated product marketing manager",
+        "Phase rollout with beta customer group"
+      ]
+    },
+    {
+      "scenario": "5-Tier Base Market",
+      "overall_score": 54.5,
+      "mitigation_strategies": [
+        "Conduct competitive pricing audit every quarter",
+        "Implement value-based pricing experiments",
+        "Hire dedicated product marketing manager",
+        "Phase rollout with beta customer group"
+      ]
+    },
+    {
+      "scenario": "5-Tier Bull Market",
+      "overall_score": 49.5,
+      "mitigation_strategies": [
+        "Conduct competitive pricing audit every quarter",
+        "Implement value-based pricing experiments",
+        "Hire dedicated product marketing manager",
+        "Phase rollout with beta customer group"
+      ]
+    }
+  ],
+  "monitoring_framework": {
+    "tier_1_metrics": {
+      "arr": {
+        "update_frequency": "daily",
+        "alert_threshold": {
+          "decrease": "5%_week_over_week"
+        },
+        "dashboard_viz": "time_series_line_chart",
+        "target": "growth_trajectory"
+      },
+      "mrr": {
+        "update_frequency": "daily",
+        "alert_threshold": {
+          "decrease": "3%_week_over_week"
+        },
+        "dashboard_viz": "time_series_line_chart",
+        "segmentation": [
+          "tier",
+          "segment",
+          "cohort"
+        ]
+      },
+      "churn_rate": {
+        "update_frequency": "weekly",
+        "alert_threshold": {
+          "increase": "1%_absolute"
+        },
+        "dashboard_viz": "gauge_chart",
+        "target": "5%_annual",
+        "segmentation": [
+          "tier",
+          "tenure",
+          "engagement"
+        ]
+      },
+      "nrr": {
+        "update_frequency": "monthly",
+        "alert_threshold": {
+          "below": "100%"
+        },
+        "dashboard_viz": "waterfall_chart",
+        "target": "110%_annual"
+      }
+    },
+    "tier_2_metrics": {
+      "customer_acquisition_cost": {
+        "update_frequency": "weekly",
+        "alert_threshold": {
+          "above": "$250"
+        },
+        "dashboard_viz": "bar_chart_by_channel"
+      },
+      "ltv_cac_ratio": {
+        "update_frequency": "monthly",
+        "alert_threshold": {
+          "below": "3.0"
+        },
+        "dashboard_viz": "gauge_chart",
+        "target": ">3.0"
+      },
+      "payback_period": {
+        "update_frequency": "monthly",
+        "alert_threshold": {
+          "above": "12_months"
+        },
+        "dashboard_viz": "trend_line"
+      },
+      "expansion_revenue": {
+        "update_frequency": "monthly",
+        "dashboard_viz": "stacked_bar",
+        "components": [
+          "upgrades",
+          "cross_sell",
+          "usage_overages"
+        ]
+      }
+    },
+    "tier_3_metrics": {
+      "tier_distribution": {
+        "update_frequency": "weekly",
+        "dashboard_viz": "pie_chart",
+        "alert": "significant_shift_>10%_week"
+      },
+      "feature_adoption": {
+        "update_frequency": "daily",
+        "dashboard_viz": "heatmap",
+        "features": [
+          "sso",
+          "api",
+          "custom_domain",
+          "white_label"
+        ]
+      },
+      "support_ticket_volume": {
+        "update_frequency": "daily",
+        "alert_threshold": {
+          "increase": "25%_day_over_day"
+        },
+        "segmentation": [
+          "tier",
+          "issue_type"
+        ]
+      },
+      "pricing_page_conversion": {
+        "update_frequency": "daily",
+        "dashboard_viz": "funnel_chart",
+        "segmentation": [
+          "traffic_source",
+          "tier_selected"
+        ]
+      }
+    },
+    "alert_system": {
+      "critical_alerts": [
+        "churn_spike_>2%_weekly",
+        "arr_decline_>5%_weekly",
+        "nrr_below_100%",
+        "cac_above_$300"
+      ],
+      "warning_alerts": [
+        "tier_shift_>10%_weekly",
+        "support_ticket_spike_>25%",
+        "pricing_page_conversion_drop_>15%"
+      ],
+      "delivery_channels": [
+        "email",
+        "slack",
+        "dashboard_banner"
+      ],
+      "escalation_policy": "notify_cfo_if_critical_alert_>24hrs"
+    },
+    "quarterly_reviews": {
+      "metrics_deep_dive": [
+        "cohort_analysis",
+        "segment_performance",
+        "competitive_benchmarking"
+      ],
+      "pricing_review": [
+        "tier_adoption",
+        "willingness_to_pay_survey",
+        "competitive_positioning"
+      ],
+      "re_optimization_triggers": [
+        "nrr_below_105%_for_2_quarters",
+        "churn_above_7%_for_2_quarters",
+        "team_tier_adoption_below_40%"
+      ]
+    }
+  },
+  "implementation_timeline": {
+    "phase_1_pre_launch": {
+      "duration_weeks": 4,
+      "budget": 25000,
+      "team": {
+        "product_manager": {
+          "fte": 0.5,
+          "cost": 8000
+        },
+        "data_analyst": {
+          "fte": 0.75,
+          "cost": 6000
+        },
+        "marketing": {
+          "fte": 0.25,
+          "cost": 3000
+        },
+        "external_research": {
+          "budget": 8000
+        }
+      },
+      "deliverables": [
+        "competitive_analysis_report",
+        "customer_survey_results_230_respondents",
+        "tier_feature_matrix",
+        "pricing_sensitivity_analysis"
+      ],
+      "milestones": {
+        "week_1": "Competitive audit complete",
+        "week_2": "Customer survey deployed (target: 150+ responses)",
+        "week_3": "Interview synthesis complete",
+        "week_4": "Feature matrix and pricing recommendation approved"
+      }
+    },
+    "phase_2_ab_testing": {
+      "duration_weeks": 4,
+      "budget": 35000,
+      "team": {
+        "product_manager": {
+          "fte": 0.5,
+          "cost": 8000
+        },
+        "frontend_engineer": {
+          "fte": 1.0,
+          "cost": 12000
+        },
+        "data_analyst": {
+          "fte": 0.5,
+          "cost": 4000
+        },
+        "designer": {
+          "fte": 0.5,
+          "cost": 5000
+        },
+        "ab_testing_platform": {
+          "cost": 2000
+        },
+        "analytics_setup": {
+          "cost": 4000
+        }
+      },
+      "deliverables": [
+        "3_pricing_page_variants",
+        "ab_test_framework_setup",
+        "analytics_tracking_implementation",
+        "statistical_significance_analysis"
+      ],
+      "milestones": {
+        "week_1": "Pricing page designs approved",
+        "week_2": "A/B test implementation complete",
+        "week_3": "Test live, data collection started",
+        "week_4": "Results analysis, winning variant selected"
+      }
+    },
+    "phase_3_soft_launch": {
+      "duration_weeks": 4,
+      "budget": 45000,
+      "team": {
+        "product_manager": {
+          "fte": 0.75,
+          "cost": 12000
+        },
+        "backend_engineer": {
+          "fte": 1.0,
+          "cost": 14000
+        },
+        "frontend_engineer": {
+          "fte": 0.5,
+          "cost": 6000
+        },
+        "customer_success": {
+          "fte": 0.5,
+          "cost": 5000
+        },
+        "support": {
+          "fte": 0.5,
+          "cost": 4000
+        },
+        "marketing": {
+          "fte": 0.25,
+          "cost": 4000
+        }
+      },
+      "deliverables": [
+        "tier_infrastructure_complete",
+        "billing_system_integration",
+        "customer_migration_tools",
+        "support_documentation",
+        "internal_training_complete"
+      ],
+      "milestones": {
+        "week_1": "Tier implementation complete (staging)",
+        "week_2": "Billing integration tested",
+        "week_3": "Soft launch to new customers",
+        "week_4": "First cohort analysis, iterate based on feedback"
+      }
+    },
+    "phase_4_full_launch": {
+      "duration_weeks": 4,
+      "budget": 60000,
+      "team": {
+        "product_manager": {
+          "fte": 0.5,
+          "cost": 8000
+        },
+        "customer_success": {
+          "fte": 1.0,
+          "cost": 10000
+        },
+        "marketing": {
+          "fte": 1.0,
+          "cost": 15000
+        },
+        "support": {
+          "fte": 1.0,
+          "cost": 8000
+        },
+        "email_campaign": {
+          "cost": 5000
+        },
+        "customer_incentives": {
+          "cost": 10000
+        },
+        "contingency": {
+          "cost": 4000
+        }
+      },
+      "deliverables": [
+        "existing_customer_migration_campaign",
+        "tier_specific_onboarding_flows",
+        "upsell_automation",
+        "expansion_revenue_tracking"
+      ],
+      "milestones": {
+        "week_1": "Migration email sequence launched",
+        "week_2": "50% of customers engaged with migration",
+        "week_3": "Migration complete or grace period set",
+        "week_4": "Full rollout complete, weekly reporting cadence established"
+      }
+    },
+    "total_investment": {
+      "budget": 165000,
+      "duration_weeks": 16,
+      "payback_estimate": "8_months_based_on_incremental_arr"
+    }
+  },
+  "market_segments": [
+    {
+      "id": "seg_000_agency",
+      "type": "agency",
+      "size": 2275,
+      "churn_rate": 0.0623679600013813,
+      "avg_team_size": 6
+    },
+    {
+      "id": "seg_001_small_business",
+      "type": "small_business",
+      "size": 5833,
+      "churn_rate": 0.09609994009015664,
+      "avg_team_size": 5
+    },
+    {
+      "id": "seg_002_mid_market",
+      "type": "mid_market",
+      "size": 2464,
+      "churn_rate": 0.027348894733660194,
+      "avg_team_size": 48
+    },
+    {
+      "id": "seg_003_agency",
+      "type": "agency",
+      "size": 4839,
+      "churn_rate": 0.05580684492074829,
+      "avg_team_size": 7
+    },
+    {
+      "id": "seg_004_security_team",
+      "type": "security_team",
+      "size": 2069,
+      "churn_rate": 0.026245576160670928,
+      "avg_team_size": 42
+    },
+    {
+      "id": "seg_005_solopreneur",
+      "type": "solopreneur",
+      "size": 8784,
+      "churn_rate": 0.120968029629149,
+      "avg_team_size": 1
+    },
+    {
+      "id": "seg_006_consultant",
+      "type": "consultant",
+      "size": 3032,
+      "churn_rate": 0.06272124930833778,
+      "avg_team_size": 13
+    },
+    {
+      "id": "seg_007_enterprise",
+      "type": "enterprise",
+      "size": 681,
+      "churn_rate": 0.03686867815138491,
+      "avg_team_size": 46
+    },
+    {
+      "id": "seg_008_micro_team",
+      "type": "micro_team",
+      "size": 3075,
+      "churn_rate": 0.06015326733309906,
+      "avg_team_size": 9
+    },
+    {
+      "id": "seg_009_mid_market",
+      "type": "mid_market",
+      "size": 2146,
+      "churn_rate": 0.03991980841409516,
+      "avg_team_size": 29
+    }
+  ]
+}
