@@ -1,0 +1,138 @@
+{
+  "services": [
+    {
+      "service_name": "DELE.TO",
+      "official_url": "https://dele.to",
+      "github_url": "https://github.com/dele-to/dele-to",
+      "positioning": "Modern alternative to PrivateBin with zero-knowledge encryption",
+      "encryption": "Client-side AES-256-GCM",
+      "zero_knowledge": true,
+      "business_model": "Free/Open Source",
+      "tech_stack": "Next.js 14",
+      "features": ["Password protection", "Auto-expiration", "View count limits", "Mobile-first design"],
+      "differentiator": "Modern UI with Next.js, mobile-first approach",
+      "sources": ["https://dele.to", "https://github.com/dele-to/dele-to"]
+    },
+    {
+      "service_name": "Password.link",
+      "official_url": "https://password.link/en",
+      "github_url": "Not found",
+      "positioning": "Secure credential sharing with AES-256-GCM",
+      "encryption": "AES-256-GCM (client-side)",
+      "zero_knowledge": true,
+      "business_model": "Free service",
+      "features": ["One-time links", "Immediate expiration after access", "Notification when viewed"],
+      "differentiator": "Notification feature when credentials viewed",
+      "sources": ["https://password.link/en"]
+    },
+    {
+      "service_name": "scrt.link",
+      "official_url": "https://scrt.link",
+      "github_url": "Not found",
+      "positioning": "Client-side encryption with key in URL fragment",
+      "encryption": "Client-side (encryption in browser)",
+      "zero_knowledge": true,
+      "business_model": "Free service",
+      "features": ["Encryption key in link fragment", "Never stored on server", "No server access to secrets"],
+      "differentiator": "Emphasis on key never leaving client",
+      "sources": ["https://scrt.link", "https://scrt.link/blog/comparison-one-time-secret"]
+    },
+    {
+      "service_name": "Privnote",
+      "official_url": "https://privnote.com",
+      "github_url": "Not official (clones exist)",
+      "positioning": "Self-destructing notes (established service)",
+      "encryption": "End-to-end encryption",
+      "zero_knowledge": "Partial (key uses hash of note ID)",
+      "business_model": "Free with optional features",
+      "features": ["Self-destruct after reading", "Optional password", "Expiration date", "Email notification", "30-day auto-deletion"],
+      "concerns": "Encryption key derived from note ID (stored on server)",
+      "differentiator": "Long-established service, notification options",
+      "sources": ["https://privnote.com", "https://privnote.com/info/about"]
+    },
+    {
+      "service_name": "1ty.me",
+      "official_url": "https://1ty.me",
+      "github_url": "Not found",
+      "positioning": "One-time self-destructing links",
+      "encryption": "Encrypted notes with partial key in URL",
+      "zero_knowledge": true,
+      "business_model": "Free",
+      "traffic": "73.5K visits",
+      "features": ["HTTPS only", "One-time view", "Email notification option", "Short URLs"],
+      "differentiator": "Simple short URLs, email notifications",
+      "sources": ["https://1ty.me", "https://1ty.me/faq"]
+    },
+    {
+      "service_name": "Saltify",
+      "official_url": "https://www.saltify.io",
+      "github_url": "Not found",
+      "positioning": "Free secret sharing with Slack integration",
+      "encryption": "Modern cipher algorithms",
+      "business_model": "Free",
+      "features": ["Up to 500 characters", "Optional passphrase", "Configurable expiration", "Slack integration"],
+      "differentiator": "Slack integration, completely free",
+      "sources": ["https://www.saltify.io/en/"]
+    },
+    {
+      "service_name": "ShareSecret (sharesecret.co)",
+      "official_url": "https://www.sharesecret.co",
+      "github_url": "Not found",
+      "positioning": "Enterprise secret sharing with Slack integration",
+      "encryption": "AES-256 at rest, keys not stored",
+      "zero_knowledge": true,
+      "business_model": "Commercial/Enterprise",
+      "features": [
+        "Slack bot integration",
+        "SSO (Google, Microsoft 365, Okta, Duo, PingIdentity)",
+        "SAML/LDAP/Active Directory",
+        "Slack Guard (scans for sensitive info)",
+        "1-7 day expiration",
+        "Access controls",
+        "File support (PDFs, docs, etc.)"
+      ],
+      "differentiator": "Enterprise SSO, Slack Guard technology, compliance focus",
+      "target": "Enterprise",
+      "sources": ["https://www.sharesecret.co"]
+    },
+    {
+      "service_name": "Hemmelig",
+      "official_url": "https://hemmelig.app",
+      "github_url": "https://github.com/HemmeligOrg/Hemmelig.app",
+      "positioning": "Keep sensitive info out of chat logs with encryption",
+      "encryption": "TweetNaCl (client-side)",
+      "zero_knowledge": true,
+      "business_model": "Open Source + Hosted option",
+      "features": ["Browser encryption before sending", "Key in URL fragment", "Self-hosted or cloud", "Docker support"],
+      "tech_stack": "Node.js",
+      "differentiator": "TweetNaCl encryption, Docker-friendly",
+      "sources": ["https://github.com/HemmeligOrg/Hemmelig.app", "https://hemmelig.app"]
+    },
+    {
+      "service_name": "Cryptgeon",
+      "official_url": "Not found (self-hosted only)",
+      "github_url": "https://github.com/cupcakearmy/cryptgeon",
+      "positioning": "Secure note/file sharing inspired by PrivNote",
+      "encryption": "Client-side",
+      "zero_knowledge": true,
+      "business_model": "Free Open Source",
+      "tech_stack": "Rust & Svelte",
+      "features": ["Notes and files", "Self-destructing", "Client-side encryption"],
+      "differentiator": "Rust backend for security/performance, modern Svelte frontend",
+      "sources": ["https://github.com/cupcakearmy/cryptgeon"]
+    },
+    {
+      "service_name": "Secret Pusher",
+      "official_url": "https://secretpusher.com",
+      "github_url": "Not found",
+      "positioning": "Secure one-time password sharing",
+      "encryption": "AES-256",
+      "business_model": "Free",
+      "features": ["One-time self-destructing links", "Unique time-limited links", "Expires after view or time"],
+      "differentiator": "Simple focused tool",
+      "sources": ["https://secretpusher.com"]
+    }
+  ],
+  "data_collected": "2025-11-23",
+  "notes": "This file contains condensed information for smaller or less documented services in the market. Many lack detailed public documentation or GitHub presence."
+}

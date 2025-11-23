@@ -1,0 +1,195 @@
+{
+  "service_name": "Bitwarden Send",
+  "official_url": "https://bitwarden.com/products/send/",
+  "github_url": "https://github.com/bitwarden (organization)",
+  "last_updated": "2025",
+  "data_collected": "2025-11-23",
+  "business_model": {
+    "type": "Feature within Bitwarden Password Manager (Freemium)",
+    "company_type": "Commercial company (Bitwarden, Inc.)",
+    "pricing_tiers": [
+      {
+        "name": "Free",
+        "price": "$0",
+        "features": [
+          "Bitwarden Send feature included",
+          "Text and file sharing",
+          "AES-256 encryption",
+          "Expiration up to 30 days",
+          "Password protection"
+        ]
+      },
+      {
+        "name": "Premium",
+        "price": "~$10/year (Bitwarden Premium)",
+        "features": [
+          "All Send features",
+          "Plus full password manager premium features",
+          "Priority support"
+        ]
+      }
+    ],
+    "revenue_model": "Part of broader Bitwarden password manager ecosystem",
+    "active_maintenance": true,
+    "last_commit_date": "2025",
+    "development_model": "Commercial with open source components"
+  },
+  "features": {
+    "core": {
+      "secret_types": ["text", "passwords", "files"],
+      "max_secret_size": "Based on plan",
+      "file_support": true,
+      "ttl_options": "1 hour to 30 days",
+      "burn_after_read": "Destruct-on-open functionality",
+      "view_limits": "Access limit options",
+      "link_formats": "Secure Send links",
+      "integration": "Integrated with Bitwarden password manager"
+    },
+    "security": {
+      "encryption_method": "AES-256",
+      "encryption_location": "End-to-end encryption",
+      "zero_knowledge": true,
+      "password_protection": "Optional password protection",
+      "https_only": true,
+      "data_at_rest_encryption": true,
+      "encryption_timing": "Encrypted on creation, decrypted on recipient open",
+      "key_handling": "Send ID and encryption key in link; encryption key in fragment (not sent to server)",
+      "server_access": "Bitwarden cannot view shared content"
+    },
+    "advanced": {
+      "api_available": "Via Bitwarden API",
+      "cli_tools": "Bitwarden CLI includes Send",
+      "browser_extensions": "Available in Bitwarden extensions",
+      "mobile_apps": "iOS and Android apps",
+      "desktop_apps": "Windows, macOS, Linux",
+      "self_hosting": "Possible with self-hosted Bitwarden",
+      "docker_support": "Self-hosted Bitwarden supports Docker",
+      "white_labeling": "Not available",
+      "audit_logs": "Enterprise features",
+      "admin_controls": "Enterprise features",
+      "sso_saml": "Enterprise Bitwarden",
+      "compliance": "SOC 2 Type 2, GDPR compliant",
+      "cross_platform": "All major platforms"
+    }
+  },
+  "user_experience": {
+    "interface_quality": "Polished, professional UI integrated with Bitwarden",
+    "documentation_quality": "Comprehensive Bitwarden documentation",
+    "onboarding": "Simple from within Bitwarden apps",
+    "multi_language": "Multiple languages supported",
+    "mobile_responsive": "Native mobile apps",
+    "accessibility": "Professional standards",
+    "integration": "Seamless integration with password manager"
+  },
+  "technology": {
+    "stack": {
+      "language": "TypeScript, C#",
+      "framework": "Angular, .NET",
+      "frontend": "Angular-based",
+      "backend": ".NET Core",
+      "database": "SQL Server (default), other options",
+      "platform": "Multi-platform"
+    },
+    "deployment": [
+      "Cloud (bitwarden.com)",
+      "Self-hosted (Docker, manual)",
+      "On-premise enterprise"
+    ],
+    "open_source_license": "Open source (AGPL-style with exceptions)"
+  },
+  "market": {
+    "target_audience": ["Bitwarden users", "Password manager users", "Individuals", "Teams", "Enterprises"],
+    "positioning": "Integrated feature within leading open-source password manager",
+    "use_cases": [
+      "Sending passwords to non-Bitwarden users",
+      "Sharing files securely",
+      "Temporary credential sharing",
+      "Secure file transmission",
+      "Inter-team secret sharing"
+    ],
+    "geographic_focus": "Global",
+    "data_storage_region": "Azure cloud (various regions)"
+  },
+  "market_presence": {
+    "github_stars": "High (Bitwarden organization)",
+    "user_base": "Millions (Bitwarden users)",
+    "website_traffic": "High (bitwarden.com)",
+    "community": "Large active community",
+    "social_media": "Active presence",
+    "press_mentions": "Extensive coverage as part of Bitwarden",
+    "market_position": "Leading open-source password manager"
+  },
+  "trust_mechanisms": {
+    "proof_of_security": [
+      "Open source codebase (auditable)",
+      "End-to-end encryption",
+      "Zero-knowledge architecture",
+      "SOC 2 Type 2 certified",
+      "Third-party security audits",
+      "Encryption key never sent to server",
+      "Proven Bitwarden security track record"
+    ],
+    "security_guarantees": [
+      "Bitwarden cannot view shared content",
+      "Encryption keys in user control",
+      "Optional password adds extra layer",
+      "Configurable expiration"
+    ],
+    "concerns": [
+      "Requires Bitwarden account for creation",
+      "Tied to larger password manager ecosystem",
+      "Not standalone tool"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://bitwarden.com/products/send/",
+      "accessed": "2025-11-23",
+      "type": "Official product page"
+    },
+    {
+      "url": "https://bitwarden.com/help/send-encryption/",
+      "accessed": "2025-11-23",
+      "type": "Encryption documentation"
+    },
+    {
+      "url": "https://bitwarden.com/blog/introducing-bitwarden-send-for-secure-sharing/",
+      "accessed": "2025-11-23",
+      "type": "Product announcement"
+    },
+    {
+      "url": "https://bitwarden.com/blog/bitwarden-send-how-it-works/",
+      "accessed": "2025-11-23",
+      "type": "Technical blog"
+    }
+  ],
+  "competitive_notes": {
+    "strengths": [
+      "Zero-knowledge end-to-end encryption",
+      "Part of mature, trusted password manager",
+      "Multi-platform (web, desktop, mobile, CLI, extensions)",
+      "Free tier includes Send",
+      "SOC 2 certified",
+      "Large user base",
+      "Professional development",
+      "Regular security audits",
+      "File and text support",
+      "Integration with password manager workflow"
+    ],
+    "weaknesses": [
+      "Requires Bitwarden account to create Sends",
+      "Not standalone tool",
+      "Feature within larger product (not specialized)",
+      "Less focused than dedicated secret-sharing tools",
+      "Learning curve if not already using Bitwarden"
+    ],
+    "differentiators": [
+      "Only major password manager with dedicated ephemeral sharing",
+      "Integrated workflow with password management",
+      "Enterprise-grade security and compliance",
+      "Cross-platform native apps",
+      "SOC 2 compliance",
+      "Part of zero-knowledge password manager ecosystem"
+    ]
+  }
+}

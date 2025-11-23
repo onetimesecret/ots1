@@ -1,0 +1,202 @@
+{
+  "service_name": "PrivateBin",
+  "official_url": "https://privatebin.info",
+  "github_url": "https://github.com/PrivateBin/PrivateBin",
+  "last_updated": "2025",
+  "data_collected": "2025-11-23",
+  "business_model": {
+    "type": "Free Open Source Software (FOSS)",
+    "company_type": "Community-driven OSS project",
+    "pricing_tiers": [
+      {
+        "name": "Free (Self-Hosted Only)",
+        "price": "$0",
+        "features": [
+          "All features included",
+          "Zero-knowledge encryption",
+          "Unlimited usage",
+          "Self-hosted on own infrastructure"
+        ]
+      }
+    ],
+    "revenue_model": "No commercial revenue model - pure open source",
+    "active_maintenance": true,
+    "last_commit_date": "2025",
+    "development_model": "Community-driven open source"
+  },
+  "features": {
+    "core": {
+      "secret_types": ["text", "code", "documents"],
+      "max_secret_size": "Configurable by administrator",
+      "file_support": "File attachment support",
+      "ttl_options": "Burn after reading, time-based expiration, never",
+      "burn_after_read": true,
+      "view_limits": "Single view option",
+      "link_formats": "Standard URLs with encryption key in fragment",
+      "custom_aliases": "Not mentioned",
+      "pastebin_features": ["Syntax highlighting", "Code formatting", "Markdown support"]
+    },
+    "security": {
+      "encryption_method": "AES-256 in Galois Counter Mode (GCM)",
+      "encryption_location": "Client-side (browser)",
+      "zero_knowledge": true,
+      "password_protection": "Optional password protection on top of encryption",
+      "https_only": "Required for security",
+      "data_at_rest_encryption": "Data stored encrypted, server cannot decrypt",
+      "auto_deletion": "Configurable expiration and burn-after-read",
+      "key_handling": "Encryption key in URL fragment (never sent to server)",
+      "plausible_deniability": "Administrators have plausible deniability of content"
+    },
+    "advanced": {
+      "api_available": false,
+      "cli_tools": "Not mentioned",
+      "browser_extensions": "Not mentioned",
+      "mobile_apps": "Not mentioned",
+      "self_hosting": true,
+      "docker_support": true,
+      "docker_details": "Official images based on php:fpm-alpine with Nginx",
+      "kubernetes_support": "Helm chart available",
+      "white_labeling": "Full customization as self-hosted",
+      "audit_logs": "Not mentioned",
+      "admin_controls": "Full control as self-hosted",
+      "sso_saml": "Not mentioned",
+      "compliance": "User-controlled as self-hosted",
+      "storage_backends": [
+        "Filesystem (default)",
+        "MySQL",
+        "PostgreSQL",
+        "SQLite",
+        "Google Cloud Storage",
+        "Amazon S3"
+      ],
+      "templates": ["Bootstrap5", "Darkstrap"],
+      "language_support": "Automatic browser language detection",
+      "qr_codes": "QR code generation for paste URLs",
+      "discussion_feature": "Optional discussion threads on pastes",
+      "identicons": "Avatar generation for discussions"
+    }
+  },
+  "user_experience": {
+    "interface_quality": "Minimalist design, clean pastebin interface",
+    "documentation_quality": "Comprehensive GitHub wiki and documentation",
+    "onboarding": "Simple paste and share - no account needed",
+    "multi_language": "Yes, automatic detection",
+    "mobile_responsive": "Yes",
+    "accessibility": "Not specifically mentioned"
+  },
+  "technology": {
+    "stack": {
+      "language": "PHP",
+      "framework": "Custom",
+      "frontend": "JavaScript (vanilla)",
+      "web_server": "Nginx (in Docker), Apache compatible",
+      "database": "Multiple options via PDO",
+      "php_requirements": "PHP with GD extension, OPcache recommended",
+      "php_extensions": ["PDO", "GD"]
+    },
+    "deployment": [
+      "Docker (recommended)",
+      "Kubernetes (Helm chart)",
+      "Traditional LAMP/LEMP stack",
+      "Various cloud platforms"
+    ],
+    "deployment_flexibility": "Multiple storage backends, highly configurable",
+    "open_source_license": "Zlib License (permissive)"
+  },
+  "market": {
+    "target_audience": ["Developers", "Privacy-conscious users", "Self-hosters", "Organizations needing data control"],
+    "positioning": "Developer-focused, privacy-first, zero-knowledge pastebin",
+    "use_cases": [
+      "Code sharing",
+      "Sensitive text sharing",
+      "Password sharing",
+      "Private documentation",
+      "Developer collaboration"
+    ],
+    "geographic_focus": "Global (user-deployed)",
+    "data_storage_region": "User-controlled"
+  },
+  "market_presence": {
+    "github_stars": "High (exact number not captured)",
+    "website_traffic": "Not applicable (self-hosted)",
+    "community": "Active GitHub community, multiple forks and contributions",
+    "social_media": "Not captured",
+    "press_mentions": "Frequently mentioned in security comparisons"
+  },
+  "trust_mechanisms": {
+    "proof_of_security": [
+      "Open source code (fully auditable)",
+      "Zero-knowledge architecture (mathematically provable)",
+      "Client-side encryption (verifiable in browser)",
+      "Fork of established ZeroBin project",
+      "No server access to plaintext data",
+      "Encryption key never leaves client or sent to server"
+    ],
+    "security_guarantees": [
+      "Server breach doesn't compromise data",
+      "Administrator has plausible deniability",
+      "HTTPS required for full security",
+      "Optional password adds extra protection layer"
+    ],
+    "concerns": [
+      "Public pastes without password are readable by anyone with link",
+      "Requires HTTPS deployment for security",
+      "User must trust their deployment/hosting"
+    ]
+  },
+  "sources": [
+    {
+      "url": "https://github.com/PrivateBin/PrivateBin",
+      "accessed": "2025-11-23",
+      "type": "GitHub repository"
+    },
+    {
+      "url": "https://privatebin.info",
+      "accessed": "2025-11-23",
+      "type": "Official website"
+    },
+    {
+      "url": "https://github.com/PrivateBin/PrivateBin/wiki/",
+      "accessed": "2025-11-23",
+      "type": "Official wiki/documentation"
+    },
+    {
+      "url": "https://noted.lol/privatebin/",
+      "accessed": "2025-11-23",
+      "type": "Third-party review"
+    },
+    {
+      "url": "https://security.stackexchange.com/questions/184706/can-we-trust-onetimesecret",
+      "accessed": "2025-11-23",
+      "type": "Security comparison discussion"
+    }
+  ],
+  "competitive_notes": {
+    "strengths": [
+      "True zero-knowledge architecture",
+      "Client-side encryption (superior security model)",
+      "Completely free and open source",
+      "No trust required in service operator",
+      "Self-hosted = complete data control",
+      "Pastebin features (syntax highlighting, discussions)",
+      "Multiple storage backend options",
+      "Active community and development",
+      "Plausible deniability for administrators"
+    ],
+    "weaknesses": [
+      "Requires technical knowledge to self-host",
+      "No hosted SaaS option for non-technical users",
+      "No official API",
+      "No enterprise support or SLA",
+      "Users must manage their own infrastructure",
+      "Setup and maintenance overhead"
+    ],
+    "differentiators": [
+      "Zero-knowledge architecture (vs server-side encryption)",
+      "Pastebin-style interface with code features",
+      "Pure FOSS model with no commercial component",
+      "Extensive storage backend flexibility",
+      "Fork of established ZeroBin project"
+    ]
+  }
+}
